@@ -52,7 +52,7 @@ def gen_norn(n_inputs):
 
 # ANDS gate - AND "sparse"
 # yikes
-c.Cell("AND2", c.COMBINATIONAL, 2, 18, [InputPin("A"), InputPin("B")], [OutputPin("Y", "A*B")])
+# c.Cell("AND2", c.COMBINATIONAL, 2, 18, [InputPin("A"), InputPin("B")], [OutputPin("Y", "A*B")])
 
 # # INV
 c.Cell("INV", c.COMBINATIONAL, 1, 9, [InputPin("A")], [OutputPin("Y", "!A")])
