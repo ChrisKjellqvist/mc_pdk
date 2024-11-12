@@ -66,6 +66,6 @@ for i in range(5):
     gen_norn(i + 2)
 
 
-c.Cell("MUX2", c.COMBINATIONAL, 4, 18, [InputPin("A"), InputPin("B"), InputPin("S")], [OutputPin("Y", "A*S + B*!S")])
+c.Cell("NMUX2", c.COMBINATIONAL, 4, 18, [InputPin("A"), InputPin("B"), InputPin("S")], [OutputPin("Y", "!A*S + !B*!S")])
 
 c.Cell("BUF", c.COMBINATIONAL, 0, 9, [InputPin("A")], [OutputPin("Y", "A")])
