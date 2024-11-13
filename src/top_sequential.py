@@ -1,4 +1,4 @@
-import cell as c
+import lib_cell as c
 
 # only the last repeater needs to change to trigger an output switch,
 # and we'll allow routing on M1 so we don't include the delay of the

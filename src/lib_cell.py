@@ -5,7 +5,7 @@ global cells
 global fstr
 
 
-import grammar as gr
+import lib_grammar as gr
 
 delay_template = """        variable_1 : input_net_transition;
     variable_2 : total_output_net_capacitance;
@@ -94,10 +94,11 @@ class Cell:
                  area,
                  ipins: list[InputPin],
                  opins: list[OutputPin],
+                 layout: str,
                  optional_preamble="",
                  optional_postamble="",
                  additional_timings=None,
-                 is_sequential=False
+                 is_sequential=False,
                  ):
         self.name = name
         self.cell_type = cell_type
@@ -107,6 +108,9 @@ class Cell:
         self.optional_preamble = optional_preamble
         self.optional_postamble = optional_postamble
         self.is_sequential = is_sequential
+        self.layout_str = layout
+        self.ipins = ipins
+        self.opins = opins
         assert self.delay >= 0
         assert self.area >= 9
         for opin in opins:

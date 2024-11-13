@@ -1,4 +1,4 @@
-import cell as c
+import lib_cell as c
 
 if __name__ == "__main__":
     print("Initializing cells")
