@@ -1,11 +1,11 @@
+import src.liberty.grammar as gr
+
+
 COMBINATIONAL = 0
 SEQUENTIAL = 1
 PHYSICAL = 2
 global cells
 global fstr
-
-
-import lib_grammar as gr
 
 delay_template = """        variable_1 : input_net_transition;
     variable_2 : total_output_net_capacitance;
@@ -86,6 +86,16 @@ class OutputPin:
         }}"""
 
 
+class Layout:
+    """
+    Provide the layout according to the grammar in lefgen_abstract
+    Each element of `l` is a separate layer with M1 (top user-accessible layer)
+    as the index [0] and other layers going consecutively downwards
+    """
+    def __init__(self, l: list[str]):
+        self.layout = l
+
+
 class Cell:
     def __init__(self,
                  name,
@@ -94,7 +104,7 @@ class Cell:
                  area,
                  ipins: list[InputPin],
                  opins: list[OutputPin],
-                 layout: str,
+                 layout: Layout,
                  optional_preamble="",
                  optional_postamble="",
                  additional_timings=None,
@@ -108,11 +118,10 @@ class Cell:
         self.optional_preamble = optional_preamble
         self.optional_postamble = optional_postamble
         self.is_sequential = is_sequential
-        self.layout_str = layout
+        self.layout = layout
         self.ipins = ipins
         self.opins = opins
         assert self.delay >= 0
-        assert self.area >= 9
         for opin in opins:
             gr.check_function(opin.f)
         # the minimum area should be 9 because you need padding to route

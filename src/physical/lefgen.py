@@ -1,6 +1,8 @@
 from enum import Enum
 import src.liberty.cell as c
-from src.global_constants import grid_size
+from src.global_constants import *
+import src.liberty.grammar
+from src.liberty.grammar import alphabet_input, alphabet_output
 
 """
 Having people install KLayout just to generate LEF files is a bit much. This module will generate LEF files
@@ -73,7 +75,8 @@ line =
 block = 
     | [udlrm] directionable
     | [A-Z~] w
-    | [gse]
+    | [A-Z~] [uldrm] t
+    | [gsew]
 directionable =
     | [tp]
     | [b] [1-4]?
@@ -98,6 +101,7 @@ class Direction(Enum):
     MIDDLE = "m"
     UNDEF = '-'
 
+
 class Entity:
     def __init__(self, block: Block):
         self.block = block
@@ -119,7 +123,7 @@ def directionable(tok: str) -> (Entity, str):
             if tok[1] in "1234":
                 e = Entity(Block.BUFFER)
                 e.buffer = int(tok[1])
-                return e
+                return e, tok[2:]
             else:
                 return Entity(Block.BUFFER), tok[2:]
     else:
@@ -132,17 +136,25 @@ def block(tok: str) -> (Entity, str):
         blk, next_tok = directionable(tok[1:])
         blk.direction = Direction(ft)
         return blk, next_tok
-    elif tok[0] in "A-Z~":
-        e = Entity(Block.REDSTONE), tok[1:]
+    elif tok[0] in (alphabet_input + alphabet_output + "~"):
+        if tok[1] == 'w':
+            e = Entity(Block.REDSTONE)
+            ntok = tok[2:]
+        else:
+            assert tok[1] in "uldrm"
+            e = Entity(Block.TORCH)
+            e.direction = Direction(tok[1])
+            ntok = tok[3:]
         e.pin_name = tok[0]
-        return e
-    elif tok[0] in "gse":
+        return e, ntok
+    elif tok[0] in "gsew":
         return Entity(Block(tok[0])), tok[1:]
     else:
         raise ValueError(f"Invalid block token: '{ft}'")
 
 
 def line(ln: str) -> [Entity]:
+    ln = ln.strip()
     blocks = []
     while len(ln) > 0:
         blk, ln = block(ln)
@@ -164,7 +176,8 @@ def layout(input_str: str) -> [[Entity]]:
     acc.reverse()
     return acc
 
-def cell2lefAbstract(cell: c.Cell):
+
+def cell2lefabstract(cell: c.Cell):
     """
     Abstract LEF DO NOT contain _all_ the information you need to get a GDS typically. Just the stuff that you
     need to do PnR. So what will we do? We'll have the wires that are used for pins and then, because there's
@@ -175,9 +188,9 @@ def cell2lefAbstract(cell: c.Cell):
     I don't imagine that we'll generate an actual GDS. Probably just take the layout (which I believe contains routes)
     as well as the cell placements and infer the rest.
     """
-    lout = layout(cell.layout_str)
+    lout = layout(cell.layout.layout[0])
     preamble = f"""
-MACRO {cell.name} {{
+MACRO {cell.name}
     CLASS CORE ;
     ORIGIN 0 0 ;
     FOREIGN {cell.name} ;
@@ -203,6 +216,7 @@ MACRO {cell.name} {{
             visited.add((i, j))
             if ele.pin_name is None:
                 blockages.add((i, j))
+                continue
             # find any connected wires and add them as a group
             pin_wires.append((ele.pin_name, (i, j)))
     """ Turn these blockages and wires into a LEF! Take DFF for instance
@@ -215,27 +229,122 @@ MACRO {cell.name} {{
         X X X
         X X X
    clk->| X |<- D
+        Although, because of minspacing requirements We'll need to give the
+        pins space so that we can route to clk, D, and Q so it will need to
+        look like... (E for empty)
+        X E _
+        X X E
+        E X E
+        | E |
+
+        Although the Es are empty, we won't be able to route anything there
+        due to the X obstructions and minspacing requirements
 """
     for i, (x, y) in pin_wires:
         direction = "OUTPUT"
         for iwr in cell.ipins:
             if iwr.name == i:
-                direction  = "INPUT"
+                direction = "INPUT"
                 break
         preamble += f"""
     PIN {i}
         DIRECTION {direction} ;
         PORT 
         LAYER M1 ;
-        RECT {x * grid_size - 0.5} {y * grid_size - 0.5} {x * grid_size + 0.5} {x * grid_size + 0.5}
+        RECT {x * grid_size} {y * grid_size} {x * grid_size + 1} {x * grid_size + 1}
     END {i}
 """
-    preamble += f"""
-    OBS
-# obstructions
-    """
+    preamble += f"\n\tOBS\n"
+    for i in range(rows):
+        for j in range(cols):
+            if (i, j) not in blockages:
+                continue
+            have_pin = False
+            for di, dj in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
+                for _, (px, py) in pin_wires:
+                    if px == (i + di) and py == (j + dj):
+                        have_pin = True
+                        break
+            if have_pin:
+                continue
+            origin_x, origin_y = i * grid_size, j * grid_size
+            preamble += f"\t\tRECT {origin_x} {origin_y} {origin_x + grid_size} {origin_y + grid_size} ;\n"
+    preamble += f"\t\tEND\n\tEND\nEND {cell.name}\n"
+    return preamble
 
 
+def get_layer_lef(i, do_via):
+    return f"""
+LAYER M{i}
+    TYPE ROUTING
+    DIRECTION {"HORIZONTAL" if i % 2 == 1 else "VERTICAL"} ;
+    PITCH {grid_size} ;
+    WIDTH 1 ;
+    SPACING {min_spacing} ;
+    AREA {min_spacing} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING {min_spacing} ENDOFLINE {grid_size} WITHIN {grid_size} PARALLELEDGE {grid_size} WITHIN {grid_size} ;" ;
+
+END M{i}
+""" + (f"""
+LAYER VIA{i}
+    TYPE CUT ;
+    SPACING {min_spacing} ;
+    PROPERTY LEF57_SPACING "SPACING {min_spacing} PARALLELOVERLAP ;" ;
+END VIA{i}
+
+VIA VIA{i}{i + 1} Default
+    LAYER M{i + 1} ;
+        RECT -{min_spacing} -{min_spacing} {min_spacing} {min_spacing} ;
+    LAYER VIA{i} ;
+        RECT -1 -1 1 1 ;
+    LAYER M{i} ;
+        RECT -{min_spacing} -{min_spacing} {min_spacing} {min_spacing} ;
+END VIA{i}{i + 1}
+
+VIARULE VIAGEN{i} GENERATE
+    LAYER{i + 1} ;
+        ENCLOSURE {min_spacing} {min_spacing} ;
+        WIDTH {min_spacing} TO {min_spacing} ;
+    LAYER VIA{i} ;
+        ENCLOSURE {min_spacing} {min_spacing} ;
+        WIDTH {min_spacing} TO {min_spacing} ;
+    LAYER{i} ;
+        ENCLOSURE {min_spacing} {min_spacing} ;
+        WIDTH {min_spacing} TO {min_spacing} ;
+END VIDAGEN{i}
+
+SITE mc_site
+    SIZE 1 BY 1 ;
+    CLASS CORE ;
+    SYMMETRY Y ;
+END mc_site
+""" if do_via else "")
 
 
+def export_lef(n_layers):
+    to_write = f"""VERSION 5.6 ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+
+UNITS
+    DATABASE MICRONS 1
+END UNITS
+
+MANUFACTURINGGRID {grid_size} ;
+PROPERTYDEFINITIONS
+    LAYER LEF57_SPACING STRING ;
+    LAYER LEF57_MINSTEP STRING ;
+END PROPERTYDEFINITIONS
+"""
+
+    for i in range(1, n_layers + 1):
+        to_write += get_layer_lef(i, i < n_layers)
+
+    for cell in c.cells:
+        to_write += cell2lefabstract(cell)
+
+    to_write += "END LIBRARY\n"
+    with open(f"tech.lef", 'w') as f:
+        f.write(to_write)
 

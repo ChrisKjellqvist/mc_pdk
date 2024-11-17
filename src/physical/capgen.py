@@ -31,7 +31,6 @@ R_wire_15l = C_wire_15l / math.log(2)
 # rho * l/A = R
 rho_wire = R_wire_15l / 15
 
-# This _will_ require some tweakin
 
 def gen_cap(n_layers: int, ofile: str):
     # all layers are the same
@@ -50,12 +49,15 @@ LAYER M{i}
         RhoSpacings 0.1 100
         RhoValues   {rho_wire} 
                     {rho_wire}
+END
+
 LAYER VIA{i}
     TopLayer    M{i+1}
     BottomLayer M{i}
     ThermalC1   0.0001
     ThermalC2   0.0001
     Resistance  {R_wire_15l}
+END
 """)
         f.write("""END_PROCESS_VARIATION\n\nBASIC_CAP_TABLE ...\n""")
         for i in range(1, n_layers+1):
