@@ -1,6 +1,5 @@
-import lib_cell as c
-import lib_grammar as gr
-from lib_cell import InputPin, OutputPin
+from src.liberty import cell as c, grammar as gr
+from src.liberty.cell import InputPin, OutputPin
 
 # OR gate
 def gen_orn(n_inputs):

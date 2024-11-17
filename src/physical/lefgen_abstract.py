@@ -1,5 +1,6 @@
 from enum import Enum
-import lib_cell as c
+import src.liberty.cell as c
+from src.global_constants import grid_size
 
 """
 Having people install KLayout just to generate LEF files is a bit much. This module will generate LEF files
@@ -54,7 +55,7 @@ e   w   s  lb1  w  e
 Sw  rb1 up  e   Bw  e
 --------------------------------------------------
 DFF example:
-
+e   Qw    w
 dt  rb1  ub1
 s   rb1  ub1
 ~w   e   Dw
@@ -104,6 +105,7 @@ class Entity:
         self.x = -1
         self.y = -1
         self.buffer = -1
+        self.pin_name = None
 
 
 def directionable(tok: str) -> (Entity, str):
@@ -131,7 +133,9 @@ def block(tok: str) -> (Entity, str):
         blk.direction = Direction(ft)
         return blk, next_tok
     elif tok[0] in "A-Z~":
-        return Entity(Block.REDSTONE), tok[1:]
+        e = Entity(Block.REDSTONE), tok[1:]
+        e.pin_name = tok[0]
+        return e
     elif tok[0] in "gse":
         return Entity(Block(tok[0])), tok[1:]
     else:
@@ -177,10 +181,61 @@ MACRO {cell.name} {{
     CLASS CORE ;
     ORIGIN 0 0 ;
     FOREIGN {cell.name} ;
-    SIZE {len(lout[0])} BY {len(lout)} ;
+    SIZE {len(lout[0]) * grid_size} BY {len(lout)} ;
     SYMMETRY X Y ;
     SITE mc_site ;
 """
     # start walking through layout. IF WE SEE PIN, then we draw it
     # connecting through AT LEAST 1 element of its source s.t., we
     # satisfy min-length requirements but don't run into the input pin
+
+    blockages = set()
+    visited = set()
+    pin_wires = list()
+    rows = len(lout)
+    cols = len(lout[0])
+    for i in range(rows):
+        row = lout[i]
+        for j in range(cols):
+            ele = row[j]
+            if (i, j) in visited:
+                continue
+            visited.add((i, j))
+            if ele.pin_name is None:
+                blockages.add((i, j))
+            # find any connected wires and add them as a group
+            pin_wires.append((ele.pin_name, (i, j)))
+    """ Turn these blockages and wires into a LEF! Take DFF for instance
+        e   e    Qw
+        dt  rb1  ub1
+        s   rb1  ub1
+        ~w   e   Dw
+        Needs to turn into (x = blockage on M1)
+        X X _ <- Q
+        X X X
+        X X X
+   clk->| X |<- D
+"""
+    for i, (x, y) in pin_wires:
+        direction = "OUTPUT"
+        for iwr in cell.ipins:
+            if iwr.name == i:
+                direction  = "INPUT"
+                break
+        preamble += f"""
+    PIN {i}
+        DIRECTION {direction} ;
+        PORT 
+        LAYER M1 ;
+        RECT {x * grid_size - 0.5} {y * grid_size - 0.5} {x * grid_size + 0.5} {x * grid_size + 0.5}
+    END {i}
+"""
+    preamble += f"""
+    OBS
+# obstructions
+    """
+
+
+
+
+
