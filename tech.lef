@@ -1,0 +1,3012 @@
+VERSION 5.6 ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+
+UNITS
+    DATABASE MICRONS 1 ;
+END UNITS
+
+MANUFACTURINGGRID 5 ;
+PROPERTYDEFINITIONS
+    LAYER LEF57_SPACING STRING ;
+    LAYER LEF57_MINSTEP STRING ;
+END PROPERTYDEFINITIONS
+
+LAYER M1
+    TYPE ROUTING ;
+    DIRECTION HORIZONTAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M1
+
+LAYER M2
+    TYPE ROUTING ;
+    DIRECTION VERTICAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M2
+
+LAYER M3
+    TYPE ROUTING ;
+    DIRECTION HORIZONTAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M3
+
+LAYER M4
+    TYPE ROUTING ;
+    DIRECTION VERTICAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M4
+
+LAYER M5
+    TYPE ROUTING ;
+    DIRECTION HORIZONTAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M5
+
+LAYER M6
+    TYPE ROUTING ;
+    DIRECTION VERTICAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M6
+
+LAYER M7
+    TYPE ROUTING ;
+    DIRECTION HORIZONTAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M7
+
+LAYER M8
+    TYPE ROUTING ;
+    DIRECTION VERTICAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M8
+
+LAYER M9
+    TYPE ROUTING ;
+    DIRECTION HORIZONTAL ;
+    PITCH 5 ;
+    WIDTH 1 ;
+    SPACING 8.07 ;
+    AREA 8.07 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+
+    PROPERTY LEF57_SPACING "SPACING 8.07 ENDOFLINE 5 WITHIN 5 PARALLELEDGE 5 WITHIN 5 ;" ;
+END M9
+
+LAYER VIA1
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA1
+
+LAYER VIA2
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA2
+
+LAYER VIA3
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA3
+
+LAYER VIA4
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA4
+
+LAYER VIA5
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA5
+
+LAYER VIA6
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA6
+
+LAYER VIA7
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA7
+
+LAYER VIA8
+    TYPE CUT ;
+    SPACING 8.07 ;
+    PROPERTY LEF57_SPACING "SPACING 8.07 PARALLELOVERLAP ;" ;
+END VIA8
+
+VIA VIA12 DEFAULT
+    LAYER M2 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA1 ;
+        RECT -1 -1 1 1 ;
+    LAYER M1 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA12
+
+VIA VIA23 DEFAULT
+    LAYER M3 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA2 ;
+        RECT -1 -1 1 1 ;
+    LAYER M2 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA23
+
+VIA VIA34 DEFAULT
+    LAYER M4 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA3 ;
+        RECT -1 -1 1 1 ;
+    LAYER M3 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA34
+
+VIA VIA45 DEFAULT
+    LAYER M5 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA4 ;
+        RECT -1 -1 1 1 ;
+    LAYER M4 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA45
+
+VIA VIA56 DEFAULT
+    LAYER M6 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA5 ;
+        RECT -1 -1 1 1 ;
+    LAYER M5 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA56
+
+VIA VIA67 DEFAULT
+    LAYER M7 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA6 ;
+        RECT -1 -1 1 1 ;
+    LAYER M6 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA67
+
+VIA VIA78 DEFAULT
+    LAYER M8 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA7 ;
+        RECT -1 -1 1 1 ;
+    LAYER M7 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA78
+
+VIA VIA89 DEFAULT
+    LAYER M9 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+    LAYER VIA8 ;
+        RECT -1 -1 1 1 ;
+    LAYER M8 ;
+        RECT -8.07 -8.07 8.07 8.07 ;
+END VIA89
+
+SITE mc_site
+    SIZE 1 BY 1 ;
+    CLASS CORE ;
+    SYMMETRY Y ;
+END mc_site
+
+MACRO INV
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN INV ;
+    SIZE 15 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 2.0 8.0 3.0 ;
+        END
+    END A
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 7.0 3.0 8.0 ;
+RECT 12.0 7.0 13.0 8.0 ;
+	END
+END INV
+
+MACRO NAND2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NAND2 ;
+    SIZE 15 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+	END
+END NAND2
+
+MACRO OR2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR2 ;
+    SIZE 15 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+	END
+END OR2
+
+MACRO OR2_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR2_1 ;
+    SIZE 15 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+	END
+END OR2_1
+
+MACRO NOR2_0
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR2_0 ;
+    SIZE 15 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 22.0 8.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 18.0 ;
+RECT 7.0 7.0 8.0 13.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+	END
+END NOR2_0
+
+MACRO NOR2_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR2_1 ;
+    SIZE 15 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 22.0 8.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 18.0 ;
+RECT 7.0 7.0 8.0 13.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+	END
+END NOR2_1
+
+MACRO OR3
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR3 ;
+    SIZE 25 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 13.0 ;
+	END
+END OR3
+
+MACRO OR3_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR3_1 ;
+    SIZE 25 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+	END
+END OR3_1
+
+MACRO OR3_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR3_2 ;
+    SIZE 25 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+	END
+END OR3_2
+
+MACRO NOR3_0
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR3_0 ;
+    SIZE 25 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 22.0 8.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 18.0 ;
+RECT 7.0 7.0 8.0 13.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+	END
+END NOR3_0
+
+MACRO NOR3_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR3_1 ;
+    SIZE 25 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 22.0 8.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 18.0 ;
+RECT 7.0 7.0 8.0 13.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+	END
+END NOR3_1
+
+MACRO NOR3_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR3_2 ;
+    SIZE 25 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 22.0 8.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 18.0 ;
+RECT 7.0 7.0 8.0 13.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+	END
+END NOR3_2
+
+MACRO OR4
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR4 ;
+    SIZE 35 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 13.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 13.0 ;
+	END
+END OR4
+
+MACRO OR4_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR4_1 ;
+    SIZE 35 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+	END
+END OR4_1
+
+MACRO OR4_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR4_2 ;
+    SIZE 35 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+	END
+END OR4_2
+
+MACRO OR4_3
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR4_3 ;
+    SIZE 35 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+	END
+END OR4_3
+
+MACRO NOR4_0
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR4_0 ;
+    SIZE 35 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+	END
+END NOR4_0
+
+MACRO NOR4_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR4_1 ;
+    SIZE 35 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+	END
+END NOR4_1
+
+MACRO NOR4_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR4_2 ;
+    SIZE 35 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+	END
+END NOR4_2
+
+MACRO NOR4_3
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR4_3 ;
+    SIZE 35 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+	END
+END NOR4_3
+
+MACRO OR5
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR5 ;
+    SIZE 45 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 13.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 13.0 ;
+RECT 37.0 7.0 38.0 13.0 ;
+RECT 42.0 12.0 43.0 13.0 ;
+	END
+END OR5
+
+MACRO OR5_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR5_1 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END OR5_1
+
+MACRO OR5_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR5_2 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END OR5_2
+
+MACRO OR5_3
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR5_3 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END OR5_3
+
+MACRO OR5_4
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR5_4 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END OR5_4
+
+MACRO NOR5_0
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR5_0 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END NOR5_0
+
+MACRO NOR5_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR5_1 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END NOR5_1
+
+MACRO NOR5_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR5_2 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END NOR5_2
+
+MACRO NOR5_3
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR5_3 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END NOR5_3
+
+MACRO NOR5_4
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR5_4 ;
+    SIZE 45 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 22.0 18.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 18.0 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+	END
+END NOR5_4
+
+MACRO OR6
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR6 ;
+    SIZE 55 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 17.0 7.0 18.0 13.0 ;
+RECT 22.0 12.0 23.0 13.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 13.0 ;
+RECT 37.0 7.0 38.0 13.0 ;
+RECT 42.0 12.0 43.0 13.0 ;
+RECT 47.0 7.0 48.0 13.0 ;
+RECT 52.0 12.0 53.0 13.0 ;
+	END
+END OR6
+
+MACRO OR6_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR6_1 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END OR6_1
+
+MACRO OR6_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR6_2 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END OR6_2
+
+MACRO OR6_3
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR6_3 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END OR6_3
+
+MACRO OR6_4
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR6_4 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END OR6_4
+
+MACRO OR6_5
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN OR6_5 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 22.0 3.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 13.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 23.0 ;
+RECT 27.0 7.0 28.0 23.0 ;
+RECT 32.0 12.0 33.0 23.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END OR6_5
+
+MACRO NOR6_0
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR6_0 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 27.0 22.0 28.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 18.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END NOR6_0
+
+MACRO NOR6_1
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR6_1 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 27.0 22.0 28.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 18.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END NOR6_1
+
+MACRO NOR6_2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR6_2 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 27.0 22.0 28.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 18.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END NOR6_2
+
+MACRO NOR6_3
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR6_3 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 27.0 22.0 28.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 18.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END NOR6_3
+
+MACRO NOR6_4
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR6_4 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 27.0 22.0 28.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 18.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END NOR6_4
+
+MACRO NOR6_5
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN NOR6_5 ;
+    SIZE 55 BY 25 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END A
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN C
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END C
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 32.0 2.0 33.0 3.0 ;
+        END
+    END D
+
+    PIN E
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 42.0 2.0 43.0 3.0 ;
+        END
+    END E
+
+    PIN F
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 52.0 2.0 53.0 3.0 ;
+        END
+    END F
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 27.0 22.0 28.0 23.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 23.0 ;
+RECT 7.0 7.0 8.0 23.0 ;
+RECT 12.0 12.0 13.0 23.0 ;
+RECT 17.0 7.0 18.0 23.0 ;
+RECT 22.0 12.0 23.0 18.0 ;
+RECT 27.0 7.0 28.0 13.0 ;
+RECT 32.0 12.0 33.0 18.0 ;
+RECT 37.0 7.0 38.0 23.0 ;
+RECT 42.0 12.0 43.0 23.0 ;
+RECT 47.0 7.0 48.0 23.0 ;
+RECT 52.0 12.0 53.0 23.0 ;
+	END
+END NOR6_5
+
+MACRO MUX2
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN MUX2 ;
+    SIZE 25 BY 20 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN S
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END S
+
+    PIN B
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END B
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 22.0 2.0 23.0 3.0 ;
+        END
+    END A
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 17.0 17.0 18.0 18.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 18.0 ;
+RECT 7.0 7.0 8.0 18.0 ;
+RECT 12.0 12.0 13.0 13.0 ;
+RECT 17.0 7.0 18.0 8.0 ;
+RECT 22.0 12.0 23.0 13.0 ;
+	END
+END MUX2
+
+MACRO BUF
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN BUF ;
+    SIZE 15 BY 15 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN A
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 2.0 8.0 3.0 ;
+        END
+    END A
+
+    PIN Y
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 7.0 12.0 8.0 13.0 ;
+        END
+    END Y
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 7.0 3.0 8.0 ;
+RECT 12.0 7.0 13.0 8.0 ;
+	END
+END BUF
+
+MACRO DFF
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN DFF ;
+    SIZE 15 BY 20 ;
+    SYMMETRY X Y ;
+    SITE mc_site ;
+
+    PIN ~
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 2.0 2.0 3.0 3.0 ;
+        END
+    END ~
+
+    PIN D
+        DIRECTION INPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 2.0 13.0 3.0 ;
+        END
+    END D
+
+    PIN Q
+        DIRECTION OUTPUT ;
+        PORT 
+        LAYER M1 ;
+        RECT 12.0 17.0 13.0 18.0 ;
+        END
+    END Q
+
+	OBS
+		LAYER M1 ;
+RECT 2.0 12.0 3.0 18.0 ;
+RECT 7.0 7.0 8.0 13.0 ;
+	END
+END DFF
+END LIBRARY
