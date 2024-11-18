@@ -69,11 +69,11 @@ def declare_logical_cells():
                 if j < i:
                     l3.append('dt')
                     l4.append('s')
-                    l5.append(f'{gr.alphabet_input[j]}w')
                 else:
                     l3.append('w')
                     l4.append('w')
-                    l5.append('w')
+                l5.append(f'{gr.alphabet_input[j]}w')
+
             l3 = ' e '.join(l3)
             l4 = ' e '.join(l4)
             l5 = ' e '.join(l5)

@@ -10,8 +10,7 @@ def declare_sequential_cells():
                    next_state: "D";
                    clocked_on: "CLK";
               }""", is_sequential=True,
-           layout=Layout(["""    e   e   Qw
-                            dt  rb1  ub1
-                            s   rb1  ub1
-                            ~w   e   Dw
-                            """]))
+           layout=Layout(["e   e   Qw\n"
+                          "dt  rb1  ub1\n"
+                          "s   rb1  ub1\n"
+                          "~w   e   Dw"]))

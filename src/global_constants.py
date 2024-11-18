@@ -9,3 +9,4 @@ def to_n_decimals(f: float, n: int) -> str:
 
 
 min_spacing = to_n_decimals(grid_size * np.sqrt(2) + 1, 2)
+grid_offset = grid_size / 2 - 0.5

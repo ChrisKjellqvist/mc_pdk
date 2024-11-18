@@ -188,13 +188,15 @@ def cell2lefabstract(cell: c.Cell):
     I don't imagine that we'll generate an actual GDS. Probably just take the layout (which I believe contains routes)
     as well as the cell placements and infer the rest.
     """
+    if cell.name == "DFF":
+        print("A")
     lout = layout(cell.layout.layout[0])
     preamble = f"""
 MACRO {cell.name}
     CLASS CORE ;
     ORIGIN 0 0 ;
     FOREIGN {cell.name} ;
-    SIZE {len(lout[0]) * grid_size} BY {len(lout)} ;
+    SIZE {len(lout[0]) * grid_size} BY {len(lout) * grid_size} ;
     SYMMETRY X Y ;
     SITE mc_site ;
 """
@@ -240,7 +242,7 @@ MACRO {cell.name}
         Although the Es are empty, we won't be able to route anything there
         due to the X obstructions and minspacing requirements
 """
-    for i, (x, y) in pin_wires:
+    for i, (w_r, w_c) in pin_wires:
         direction = "OUTPUT"
         for iwr in cell.ipins:
             if iwr.name == i:
@@ -251,32 +253,47 @@ MACRO {cell.name}
         DIRECTION {direction} ;
         PORT 
         LAYER M1 ;
-        RECT {x * grid_size} {y * grid_size} {x * grid_size + 1} {x * grid_size + 1}
+        RECT {w_c * grid_size + grid_offset} {w_r * grid_size + grid_offset} {w_c * grid_size + 1 + grid_offset} {w_r* grid_size + 1 + grid_offset} ;
+        END
     END {i}
 """
-    preamble += f"\n\tOBS\n"
-    for i in range(rows):
-        for j in range(cols):
-            if (i, j) not in blockages:
+    preamble += f"\n\tOBS\n\t\tLAYER M1 ;\n"
+
+    invalid_blockage_locations = set()
+    for _, (i ,j) in pin_wires:
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1), (0, 0)]:
+            invalid_blockage_locations.add((i+di, j+dj))
+
+    for c in range(cols):
+        # find base row to start a blockage
+        base = -1
+        for r in range(rows):
+            if (r, c) in invalid_blockage_locations:
+                if base != -1:
+                    preamble += f"RECT {c * grid_size + grid_offset} {base * grid_size + grid_offset} {c * grid_size + grid_offset + 1} {(r-1)*grid_size+grid_offset+1} ;\n"
+                    base = -1
                 continue
-            have_pin = False
-            for di, dj in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
-                for _, (px, py) in pin_wires:
-                    if px == (i + di) and py == (j + dj):
-                        have_pin = True
-                        break
-            if have_pin:
+            if base == -1:
+                base = r
                 continue
-            origin_x, origin_y = i * grid_size, j * grid_size
-            preamble += f"\t\tRECT {origin_x} {origin_y} {origin_x + grid_size} {origin_y + grid_size} ;\n"
-    preamble += f"\t\tEND\n\tEND\nEND {cell.name}\n"
+        if base != -1:
+            preamble += f"RECT {c * grid_size + grid_offset} {base * grid_size + grid_offset} {c * grid_size + grid_offset + 1} {(rows-1) * grid_size + grid_offset + 1} ;\n"
+    preamble += f"\tEND\nEND {cell.name}\n"
     return preamble
 
+def get_via_lef(i):
+    return f"""
+LAYER VIA{i}
+    TYPE CUT ;
+    SPACING {min_spacing} ;
+    PROPERTY LEF57_SPACING "SPACING {min_spacing} PARALLELOVERLAP ;" ;
+END VIA{i}
+"""
 
-def get_layer_lef(i, do_via):
+def get_layer_lef(i):
     return f"""
 LAYER M{i}
-    TYPE ROUTING
+    TYPE ROUTING ;
     DIRECTION {"HORIZONTAL" if i % 2 == 1 else "VERTICAL"} ;
     PITCH {grid_size} ;
     WIDTH 1 ;
@@ -284,42 +301,37 @@ LAYER M{i}
     AREA {min_spacing} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
 
     PROPERTY LEF57_SPACING "SPACING {min_spacing} ENDOFLINE {grid_size} WITHIN {grid_size} PARALLELEDGE {grid_size} WITHIN {grid_size} ;" ;
-
 END M{i}
-""" + (f"""
-LAYER VIA{i}
-    TYPE CUT ;
-    SPACING {min_spacing} ;
-    PROPERTY LEF57_SPACING "SPACING {min_spacing} PARALLELOVERLAP ;" ;
-END VIA{i}
+"""
 
-VIA VIA{i}{i + 1} Default
-    LAYER M{i + 1} ;
+
+def get_via_def_between(i, j):
+    assert(i + 1 == j)
+    return f"""
+VIA VIA{i}{j} DEFAULT
+    LAYER M{j} ;
         RECT -{min_spacing} -{min_spacing} {min_spacing} {min_spacing} ;
     LAYER VIA{i} ;
         RECT -1 -1 1 1 ;
     LAYER M{i} ;
         RECT -{min_spacing} -{min_spacing} {min_spacing} {min_spacing} ;
-END VIA{i}{i + 1}
+END VIA{i}{j}
+"""
 
+def get_viarule_between(i, j):
+    return f"""
 VIARULE VIAGEN{i} GENERATE
-    LAYER{i + 1} ;
+    LAYER M{j} ;
         ENCLOSURE {min_spacing} {min_spacing} ;
         WIDTH {min_spacing} TO {min_spacing} ;
     LAYER VIA{i} ;
         ENCLOSURE {min_spacing} {min_spacing} ;
         WIDTH {min_spacing} TO {min_spacing} ;
-    LAYER{i} ;
+    LAYER M{i} ;
         ENCLOSURE {min_spacing} {min_spacing} ;
         WIDTH {min_spacing} TO {min_spacing} ;
 END VIDAGEN{i}
-
-SITE mc_site
-    SIZE 1 BY 1 ;
-    CLASS CORE ;
-    SYMMETRY Y ;
-END mc_site
-""" if do_via else "")
+"""
 
 
 def export_lef(n_layers):
@@ -328,7 +340,7 @@ BUSBITCHARS "[]" ;
 DIVIDERCHAR "/" ;
 
 UNITS
-    DATABASE MICRONS 1
+    DATABASE MICRONS 1 ;
 END UNITS
 
 MANUFACTURINGGRID {grid_size} ;
@@ -339,11 +351,22 @@ END PROPERTYDEFINITIONS
 """
 
     for i in range(1, n_layers + 1):
-        to_write += get_layer_lef(i, i < n_layers)
-
+        to_write += get_layer_lef(i)
+    for i in range(1, n_layers):
+        to_write += get_via_lef(i)
+    for i in range(1, n_layers):
+        to_write += get_via_def_between(i, i+1)
+    # for i in range(1, n_layers):
+    #     to_write += get_viarule_between(i, i+1)
+    to_write += """
+SITE mc_site
+    SIZE 1 BY 1 ;
+    CLASS CORE ;
+    SYMMETRY Y ;
+END mc_site
+"""
     for cell in c.cells:
         to_write += cell2lefabstract(cell)
-
     to_write += "END LIBRARY\n"
     with open(f"tech.lef", 'w') as f:
         f.write(to_write)
