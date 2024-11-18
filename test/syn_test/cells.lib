@@ -54,6 +54,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -111,6 +112,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -119,6 +121,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -206,6 +209,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -214,6 +218,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -301,6 +306,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -309,6 +315,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -396,6 +403,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -404,6 +412,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -491,6 +500,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -499,6 +509,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -586,6 +597,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -594,6 +606,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -602,6 +615,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -719,6 +733,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -727,6 +742,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -735,6 +751,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -852,6 +869,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -860,6 +878,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -868,6 +887,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -985,6 +1005,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -993,6 +1014,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -1001,6 +1023,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -1118,6 +1141,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -1126,6 +1150,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -1134,6 +1159,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -1251,6 +1277,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -1259,6 +1286,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -1267,6 +1295,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -1384,6 +1413,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -1392,6 +1422,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -1400,6 +1431,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -1408,6 +1440,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -1555,6 +1588,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -1563,6 +1597,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -1571,6 +1606,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -1579,6 +1615,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -1726,6 +1763,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -1734,6 +1772,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -1742,6 +1781,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -1750,6 +1790,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -1897,6 +1938,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -1905,6 +1947,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -1913,6 +1956,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -1921,6 +1965,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -2068,6 +2113,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -2076,6 +2122,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -2084,6 +2131,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -2092,6 +2140,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -2239,6 +2288,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -2247,6 +2297,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -2255,6 +2306,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -2263,6 +2315,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -2410,6 +2463,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -2418,6 +2472,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -2426,6 +2481,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -2434,6 +2490,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -2581,6 +2638,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -2589,6 +2647,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -2597,6 +2656,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -2605,6 +2665,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -2752,6 +2813,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -2760,6 +2822,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -2768,6 +2831,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -2776,6 +2840,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -2784,6 +2849,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -2961,6 +3027,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -2969,6 +3036,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -2977,6 +3045,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -2985,6 +3054,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -2993,6 +3063,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -3170,6 +3241,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -3178,6 +3250,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -3186,6 +3259,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -3194,6 +3268,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -3202,6 +3277,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -3379,6 +3455,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -3387,6 +3464,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -3395,6 +3473,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -3403,6 +3482,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -3411,6 +3491,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -3588,6 +3669,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -3596,6 +3678,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -3604,6 +3687,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -3612,6 +3696,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -3620,6 +3705,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -3797,6 +3883,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -3805,6 +3892,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -3813,6 +3901,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -3821,6 +3910,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -3829,6 +3919,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -4006,6 +4097,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -4014,6 +4106,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -4022,6 +4115,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -4030,6 +4124,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -4038,6 +4133,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -4215,6 +4311,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -4223,6 +4320,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -4231,6 +4329,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -4239,6 +4338,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -4247,6 +4347,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -4424,6 +4525,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -4432,6 +4534,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -4440,6 +4543,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -4448,6 +4552,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -4456,6 +4561,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -4633,6 +4739,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -4641,6 +4748,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -4649,6 +4757,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -4657,6 +4766,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -4665,6 +4775,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -4842,6 +4953,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -4850,6 +4962,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -4858,6 +4971,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -4866,6 +4980,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -4874,6 +4989,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -4882,6 +4998,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -5089,6 +5206,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -5097,6 +5215,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -5105,6 +5224,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -5113,6 +5233,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -5121,6 +5242,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -5129,6 +5251,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -5336,6 +5459,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -5344,6 +5468,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -5352,6 +5477,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -5360,6 +5486,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -5368,6 +5495,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -5376,6 +5504,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -5583,6 +5712,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -5591,6 +5721,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -5599,6 +5730,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -5607,6 +5739,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -5615,6 +5748,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -5623,6 +5757,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -5830,6 +5965,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -5838,6 +5974,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -5846,6 +5983,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -5854,6 +5992,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -5862,6 +6001,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -5870,6 +6010,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -6077,6 +6218,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -6085,6 +6227,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -6093,6 +6236,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -6101,6 +6245,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -6109,6 +6254,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -6117,6 +6263,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -6324,6 +6471,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -6332,6 +6480,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -6340,6 +6489,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -6348,6 +6498,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -6356,6 +6507,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -6364,6 +6516,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -6571,6 +6724,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -6579,6 +6733,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -6587,6 +6742,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -6595,6 +6751,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -6603,6 +6760,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -6611,6 +6769,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -6818,6 +6977,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -6826,6 +6986,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -6834,6 +6995,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -6842,6 +7004,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -6850,6 +7013,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -6858,6 +7022,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -7065,6 +7230,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -7073,6 +7239,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -7081,6 +7248,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -7089,6 +7257,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -7097,6 +7266,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -7105,6 +7275,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -7312,6 +7483,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -7320,6 +7492,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -7328,6 +7501,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -7336,6 +7510,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -7344,6 +7519,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -7352,6 +7528,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -7559,6 +7736,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -7567,6 +7745,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(C) {
@@ -7575,6 +7754,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(D) {
@@ -7583,6 +7763,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(E) {
@@ -7591,6 +7772,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(F) {
@@ -7599,6 +7781,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -7806,6 +7989,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(B) {
@@ -7814,6 +7998,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(S) {
@@ -7822,6 +8007,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -7939,6 +8125,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Y) {
@@ -7996,6 +8183,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(CLK) {
@@ -8004,6 +8192,7 @@ library (mc_cells) {
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : false;
             
         }
         pin(Q) {

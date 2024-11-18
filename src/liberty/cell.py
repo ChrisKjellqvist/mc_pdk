@@ -20,8 +20,9 @@ delay_input = """                    index_1 ("0, 10000");
 
 
 class InputPin:
-    def __init__(self, name):
+    def __init__(self, name, is_clock=False):
         self.name = name
+        self.is_clock = is_clock
 
     def to_str(self, opts=None):
         timing = ""
@@ -35,6 +36,7 @@ class InputPin:
             related_power_pin: VDD;
             direction : input;
             capacitance : 0;
+            clock : {'true' if self.is_clock else 'false'};
             {timing}
         }}"""
 
