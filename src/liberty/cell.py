@@ -7,22 +7,54 @@ PHYSICAL = 2
 global cells
 global fstr
 
-delay_template = """        variable_1 : input_net_transition;
-    variable_2 : total_output_net_capacitance;
+delay_template = """variable_1 : input_net_transition;
+variable_2 : total_output_net_capacitance;
+index_1 ("0, 10000");
+index_2 ("0, 10000");
+"""
+
+delay_input = """index_1 ("0, 10000");
+index_2 ("0, 10000");
+values ("{delay}, {delay}","{delay}, {delay}");
+"""
+
+hold_template = """
+variable_1 : related_pin_transition;
+variable_2 : constrained_pin_transition;
+index_1 ("0, 10000");
+index_2 ("0, 10000");
+"""
+
+setup_template = """
+    variable_1 : related_pin_transition;
+    variable_2 : constrained_pin_transition;
     index_1 ("0, 10000");
     index_2 ("0, 10000");
-    """
+"""
 
-delay_input = """                    index_1 ("0, 10000");
-                    index_2 ("0, 10000");
-                    values ("{delay}, {delay}","{delay}, {delay}");
+setup_input = """
+index_1 ("0, 10000");
+index_2 ("0, 10000");
+values ("{delay}, {delay}","{delay}, {delay}");
 """
 
 
+hold_input = """
+index_1 ("0, 10000");
+index_2 ("0, 10000");
+values ("0, 0", "0, 0");"""
+
+width_template = """
+variable_1 : related_pin_transition;
+index_1 ("0, 10000");
+  """
+
+
 class InputPin:
-    def __init__(self, name, is_clock=False):
+    def __init__(self, name, is_clock=False, additional_timing_arcs=None):
         self.name = name
         self.is_clock = is_clock
+        self.additional_timing_arcs=additional_timing_arcs
 
     def to_str(self, opts=None):
         timing = ""
@@ -38,6 +70,7 @@ class InputPin:
             capacitance : 0;
             clock : {'true' if self.is_clock else 'false'};
             {timing}
+{self.additional_timing_arcs if self.additional_timing_arcs is not None else ""}
         }}"""
 
 
@@ -63,23 +96,24 @@ class OutputPin:
             tt2 = ""#f"timing_sense: {self.timing_sense};"
             pins_to_condition = related_pins
         for pin in pins_to_condition:
-            timings.append(f"""             timing() {{
-                related_pin : "{pin.name}";
-                {tt1}
-                {tt2}
-                cell_rise(delay_template) {{
+            timings.append(f"""
+timing() {{
+    related_pin : "{pin.name}";
+    {tt1}
+    {tt2}
+    cell_rise(delay_template) {{
 {delay_input.format(delay=delay)}
-                }}
-                cell_fall(delay_template) {{
+    }}
+    cell_fall(delay_template) {{
 {delay_input.format(delay=delay)}
-                }}
-                rise_transition(delay_template) {{
+    }}
+    rise_transition(delay_template) {{
 {delay_input.format(delay=delay)}
-                }}
-                fall_transition(delay_template) {{
+    }}
+    fall_transition(delay_template) {{
 {delay_input.format(delay=delay)}
-                }}
-            }}
+    }}
+}}
 """)
         return f"""        pin({self.name}) {{
             direction : output;
@@ -201,6 +235,15 @@ def export_lib():
     default_operating_conditions : sunny_day;
     lu_table_template (delay_template) {{
 {delay_template}  
+    }};
+    lu_table_template (hold_template) {{
+{hold_template}
+    }};
+    lu_table_template (setup_template) {{
+{setup_template}
+    }};
+    lu_table_template (width_template) {{
+{width_template}
     }};
     {cell_str}
 }}
