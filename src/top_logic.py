@@ -106,7 +106,7 @@ def declare_logical_cells():
            delay=2,
            area=9,
            ipins=[InputPin("A"), InputPin("B")],
-           opins=[OutputPin("Y", "!(A*Be)")],
+           opins=[OutputPin("Y", "!(A*B)")],
            layout=Layout(["dt Yw dt\ns e s\nAw e Bw"]))
 
     # OR2,3,4,5
