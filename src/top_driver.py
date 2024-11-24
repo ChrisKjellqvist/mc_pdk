@@ -9,9 +9,10 @@ if __name__ == "__main__":
     c.init_cells()
     tl.declare_logical_cells()
     ts.declare_sequential_cells()
-    c.export_lib()
-    export_lef(n_layers=9)
+    c.export_lib(ofile="./pdk_gen/cells.lib")
+    export_lef(n_layers=9,
+               ofile="./pdk_gen/tech.lef")
     gen_cap(n_layers=9,
-            ofile="cap.captable")
+            ofile="./pdk_gen/cap.captable")
     gen_map(n_layers=9,
-            ofile="tech.map")
+            ofile="./pdk_gen/tech.map")

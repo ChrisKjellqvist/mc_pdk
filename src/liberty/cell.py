@@ -199,10 +199,10 @@ def init_cells():
     cells = []
 
 
-def export_lib():
+def export_lib(ofile):
     print("Exporting library")
     cell_str = "\n".join([c.to_str() for c in cells])
-    with open("cells.lib", "w") as f:
+    with open(ofile, "w") as f:
         f.write(f"""library (mc_cells) {{
     revision : "1.0";
     technology : "cmos";

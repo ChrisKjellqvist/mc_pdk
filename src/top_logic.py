@@ -109,6 +109,27 @@ def declare_logical_cells():
            opins=[OutputPin("Y", "!(A*B)")],
            layout=Layout(["dt Yw dt\ns e s\nAw e Bw"]))
 
+    c.Cell("NOR2_S",
+           c.COMBINATIONAL,
+           1, 9,
+           ipins=[c.InputPin("A"),
+                  c.InputPin("B")],
+           opins=[OutputPin("Y", "!(A+B)")],
+           layout=Layout(["e  Yw  e\n"
+                          "e  dt  e\n"
+                          "Aw s  Bw"]))
+    c.Cell("NOR3_S",
+           c.COMBINATIONAL,
+           1, 12,
+           ipins=[c.InputPin("A"),
+                  c.InputPin("B"),
+                  c.InputPin("C")],
+           opins=[OutputPin("Y", "!(A+B+C)")],
+           layout=Layout(["e  Yw  e\n"
+                          "e  dt  e\n"
+                          "Aw s  Bw\n"
+                          "e  Cw  e"]))
+
     # OR2,3,4,5
     for i in range(5):
         gen_orn(i + 2)
@@ -130,6 +151,14 @@ def declare_logical_cells():
                          f" w  w rb  w  w\n"
                          f" g  g  g  g  g"]))
 
+    c.Cell("XOR",
+           c.COMBINATIONAL,
+           delay=3,
+           area=20,
+           ipins=[InputPin("A"), InputPin("B")],
+           opins=[OutputPin("Y", "!((A*B)+(!A*!B))")],
+           layout=Layout(["e   e  "])
+           )
     c.Cell("BUF",
            c.COMBINATIONAL,
            delay=0,

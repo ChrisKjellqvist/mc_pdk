@@ -334,7 +334,7 @@ END VIDAGEN{i}
 """
 
 
-def export_lef(n_layers):
+def export_lef(n_layers, ofile):
     to_write = f"""VERSION 5.6 ;
 BUSBITCHARS "[]" ;
 DIVIDERCHAR "/" ;
@@ -368,6 +368,6 @@ END mc_site
     for cell in c.cells:
         to_write += cell2lefabstract(cell)
     to_write += "END LIBRARY\n"
-    with open(f"tech.lef", 'w') as f:
+    with open(ofile, 'w') as f:
         f.write(to_write)
 
