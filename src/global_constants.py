@@ -4,7 +4,6 @@ pitch = manufacturing_grid_size * 40
 
 def to_n_decimals(f: float, n: int) -> str:
     a = str(f)
-    print(f"shrinking {f}")
     if '.' in a:
         return a[:min(len(a), n+1+a.index('.'))]
 
