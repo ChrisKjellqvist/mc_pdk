@@ -64,9 +64,9 @@ END PROPERTYDEFINITIONS
         to_write += get_via_def_between(i, i+1)
     # for i in range(1, n_layers):
     #     to_write += get_viarule_between(i, i+1)
-    to_write += """
+    to_write += f"""
 SITE mc_site
-    SIZE 1 BY 1 ;
+    SIZE {wire_width} BY {wire_width} ;
     CLASS CORE ;
     SYMMETRY Y ;
 END mc_site
