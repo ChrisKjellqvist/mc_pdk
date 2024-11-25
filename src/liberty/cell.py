@@ -1,5 +1,5 @@
 import src.liberty.grammar as gr
-
+from src.liberty.layout import Layout
 
 COMBINATIONAL = 0
 SEQUENTIAL = 1
@@ -120,16 +120,6 @@ timing() {{
             function : "{self.f}";
 {newline.join(timings)}
         }}"""
-
-
-class Layout:
-    """
-    Provide the layout according to the grammar in lefgen_abstract
-    Each element of `l` is a separate layer with M1 (top user-accessible layer)
-    as the index [0] and other layers going consecutively downwards
-    """
-    def __init__(self, l: list[str]):
-        self.layout = l
 
 
 class Cell:

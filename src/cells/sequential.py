@@ -1,5 +1,5 @@
 from src.liberty import cell as c
-from src.liberty.cell import Layout
+from src.liberty.layout import Layout
 
 
 def declare_sequential_cells():
@@ -99,7 +99,7 @@ def declare_sequential_cells():
                        clocked_on: "CLK";""",
         postamble_name="IQ",
         other_ipins=[],
-        layout=Layout(["e   e   Qw\n"
+        layout=Layout(1, ["e   e   Qw\n"
                        "dt  rb1  ub1\n"
                        "s   rb1  ub1\n"
                        "~w   e   Dw"]))
@@ -112,7 +112,7 @@ def declare_sequential_cells():
                            clocked_on: "!CLK";""",
         postamble_name="IQ",
         other_ipins=[],
-        layout=Layout(["~w  e   Qw\n"
+        layout=Layout(1, ["~w  e   Qw\n"
                        "s   rb1  ub1\n"
                        "ut  rb1  ub1\n"
                        "e   e   Dw"]))
@@ -126,7 +126,7 @@ def declare_sequential_cells():
             clocked_on: "CLK";
 """,
         other_ipins=[("E", True)],
-        layout=Layout(["e   e   e   e   Qw\n"
+        layout=Layout(1, ["e   e   e   e   Qw\n"
                        "e   dt  w   rb1 ub1\n"
                        "Ew  s   dt  e   w\n"
                        "e   e   s   rb1 ub1\n"
@@ -141,7 +141,7 @@ def declare_sequential_cells():
             clocked_on: "CLK";
 """,
         other_ipins=[("E", True), ("R", True)],
-        layout=Layout(["e   e   e   e   Qw\n"
+        layout=Layout(1, ["e   e   e   e   Qw\n"
                        "e   dt  w   rb1 ub1\n"
                        "Ew  s   dt  e   Rw\n"
                        "w   e   s   rb1 ub1\n"
@@ -163,7 +163,7 @@ def declare_sequential_cells():
                 clocked_on: "CLK";
     """,
         other_ipins=[("E", True), ("R", True)],
-        layout=Layout(["e   g   lb1 w   dt  e\n"
+        layout=Layout(1, ["e   g   lb1 w   dt  e\n"
                        "Dw  dt  ub1 e   s   Dw\n"
                        "e   ut  w   e   e   e\n"
                        "e   s   lt  s   w   Rw\n"

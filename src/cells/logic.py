@@ -1,5 +1,6 @@
 from src.liberty import cell as c, grammar as gr
-from src.liberty.cell import InputPin, OutputPin, Layout
+from src.liberty.cell import InputPin, OutputPin
+from src.liberty.layout import Layout
 
 
 def declare_logical_cells():
@@ -13,7 +14,7 @@ def declare_logical_cells():
                3 * (2 * n_inputs - 1),
                [InputPin(gr.alphabet_input[i]) for i in range(n_inputs)],
                [OutputPin("Y", "+".join(gr.alphabet_input[:n_inputs]))],
-               layout=Layout([f"""e Yw e {'e ' * max(0, (2 * (n_inputs - 1) - 1))} 
+               layout=Layout(1, [f"""e Yw e {'e ' * max(0, (2 * (n_inputs - 1) - 1))} 
                           w  w w {'w ' * max(0, (2 * (n_inputs - 1) - 1))}
                           {input_wires}"""]))
         for i in range(1, n_inputs):
@@ -44,8 +45,7 @@ def declare_logical_cells():
                    area=5 * (2 * n_inputs - 1),
                    ipins=[InputPin(gr.alphabet_input[i]) for i in range(n_inputs)],
                    opins=[OutputPin("Y", "+".join(f))],
-                   layout=Layout([f"{l1}\n{l2}\n{l3}\n{l4}\n{l5}"]))
-
+                   layout=Layout(1, [f"{l1}\n{l2}\n{l3}\n{l4}\n{l5}"]))
 
     def gen_norn(n_inputs):
         """
@@ -84,8 +84,7 @@ def declare_logical_cells():
                    area=5 * (2 * n_inputs - 1),
                    ipins=[InputPin(gr.alphabet_input[q]) for q in range(n_inputs)],
                    opins=[OutputPin("Y", f"!({'*'.join(f)})")],
-                   layout=Layout(['\n'.join(rows)]))
-
+                   layout=Layout(1, ['\n'.join(rows)]))
 
     # ANDS gate - AND "sparse"
     # yikes
@@ -98,7 +97,7 @@ def declare_logical_cells():
            area=9,
            ipins=[InputPin("A")],
            opins=[OutputPin("Y", "!A")],
-           layout=Layout(["e Ydt e\ne s e\ne Aw e"]))
+           layout=Layout(1, ["e Ydt e\ne s e\ne Aw e"]))
 
     # NAND
     c.Cell("NAND2",
@@ -107,7 +106,7 @@ def declare_logical_cells():
            area=9,
            ipins=[InputPin("A"), InputPin("B")],
            opins=[OutputPin("Y", "!(A*B)")],
-           layout=Layout(["dt Yw dt\ns e s\nAw e Bw"]))
+           layout=Layout(1, ["dt Yw dt\ns e s\nAw e Bw"]))
 
     c.Cell("NOR2_S",
            c.COMBINATIONAL,
@@ -115,9 +114,9 @@ def declare_logical_cells():
            ipins=[c.InputPin("A"),
                   c.InputPin("B")],
            opins=[OutputPin("Y", "!(A+B)")],
-           layout=Layout(["e  Yw  e\n"
-                          "e  dt  e\n"
-                          "Aw s  Bw"]))
+           layout=Layout(1, ["e  Yw  e\n"
+                             "e  dt  e\n"
+                             "Aw s  Bw"]))
     c.Cell("NOR3_S",
            c.COMBINATIONAL,
            1, 12,
@@ -125,7 +124,7 @@ def declare_logical_cells():
                   c.InputPin("B"),
                   c.InputPin("C")],
            opins=[OutputPin("Y", "!(A+B+C)")],
-           layout=Layout(["e  Yw  e\n"
+           layout=Layout(1, ["e  Yw  e\n"
                           "e  dt  e\n"
                           "Aw s  Bw\n"
                           "e  Cw  e"]))
@@ -141,30 +140,38 @@ def declare_logical_cells():
            area=20,
            ipins=[InputPin("A"), InputPin("B"), InputPin("S")],
            opins=[OutputPin("Y", "A*S + B*!S")],
-           layout=Layout([f" e  e mt Yw mt\n"
-                         f" e  e dt  g dt\n"
-                         f" e  e  s  g  g \n"
-                         f"Sw  e Bw  e Aw",
+           layout=Layout(1, [f" e  e mt Yw mt\n"
+                          f" e  e dt  g dt\n"
+                          f" e  e  s  g  g \n"
+                          f"Sw  e Bw  e Aw",
 
-                         f"dt  w  s  g  s\n"
-                         f" s  e  w  e  w\n"
-                         f" w  w rb  w  w\n"
-                         f" g  g  g  g  g"]))
+                          f"dt  w  s  g  s\n"
+                          f" s  e  w  e  w\n"
+                          f" w  w rb  w  w\n"
+                          f" g  g  g  g  g"]))
 
-    c.Cell("XOR",
-           c.COMBINATIONAL,
-           delay=3,
-           area=20,
-           ipins=[InputPin("A"), InputPin("B")],
-           opins=[OutputPin("Y", "!((A*B)+(!A*!B))")],
-           layout=Layout(["e   e  "])
-           )
     c.Cell("BUF",
            c.COMBINATIONAL,
            delay=0,
            area=9,
            ipins=[InputPin("A")],
            opins=[OutputPin("Y", "A")],
-           layout=Layout(["e Yw e\n"
+           layout=Layout(1, ["e Yw e\n"
                           "e ub e\n"
                           "e Aw e"]))
+    c.Cell("XOR",
+           c.COMBINATIONAL,
+           delay=3,
+           area=20,
+           ipins=[InputPin("A"),
+                  InputPin("B")],
+           opins=[OutputPin("Y", "!((A*B)+(!A*!B))")],
+           layout=Layout(1, ["e e w s w\n"
+                             "e e ut dt ut\n"
+                             "Yw mt s dt s\n"
+                             "e e Aw s Bw",
+
+                             "e e g e g\n"
+                             "e e e w e\n"
+                             "g s w w e\n"
+                             "e e g e g"]))
