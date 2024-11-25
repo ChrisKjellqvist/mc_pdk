@@ -198,15 +198,6 @@ class Layout:
         I don't imagine that we'll generate an actual GDS. Probably just take the layout (which I believe contains routes)
         as well as the cell placements and infer the rest.
         """
-        cell_lef = f"""
-    MACRO {name}
-        CLASS CORE ;
-        ORIGIN 0 0 ;
-        FOREIGN {name} ;
-        SIZE {len(self.lout[0]) * grid_size} BY {len(self.lout) * grid_size} ;
-        SYMMETRY X Y ;
-        SITE mc_site ;
-    """
         # start walking through layout. IF WE SEE PIN, then we draw it
         # connecting through AT LEAST 1 element of its source s.t., we
         # satisfy min-length requirements but don't run into the input pin
@@ -241,6 +232,16 @@ class Layout:
             lout = layout(self.lout[ar_idx])
             rows = len(lout)
             cols = len(lout[0])
+            if lidx == 0:
+                cell_lef = f"""
+                MACRO {name}
+                    CLASS CORE ;
+                    ORIGIN 0 0 ;
+                    FOREIGN {name} ;
+                    SIZE {len(lout[0]) * grid_size} BY {len(lout) * grid_size} ;
+                    SYMMETRY X Y ;
+                    SITE mc_site ;
+                """
             for i in range(rows):
                 row = lout[i]
                 for j in range(cols):
