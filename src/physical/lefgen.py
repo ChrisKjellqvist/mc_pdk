@@ -21,10 +21,10 @@ def get_layer_lef(i):
 LAYER M{i}
     TYPE ROUTING ;
     DIRECTION {"HORIZONTAL" if i % 2 == 1 else "VERTICAL"} ;
-    PITCH {grid_size} ;
-    WIDTH 1 ;
-    SPACING {min_spacing} ;
-    AREA {min_spacing} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+    PITCH 1 ;
+    WIDTH 0.01 ;
+    SPACING 0.02 ;
+    AREA 0.02 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
 
     PROPERTY LEF57_SPACING "SPACING {min_spacing} ENDOFLINE {grid_size} WITHIN {grid_size} PARALLELEDGE {grid_size} WITHIN {grid_size} ;" ;
 END M{i}
@@ -58,7 +58,7 @@ UNITS
     DATABASE MICRONS 100 ;
 END UNITS
 
-MANUFACTURINGGRID 0.01 ;
+MANUFACTURINGGRID 0.005 ;
 PROPERTYDEFINITIONS
     LAYER LEF57_SPACING STRING ;
     LAYER LEF57_MINSTEP STRING ;

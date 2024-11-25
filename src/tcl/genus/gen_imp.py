@@ -64,4 +64,5 @@ set init_pwr_net {{VDD}}
 set init_gnd_net {{VSS}}
 
 init_design -setup slow -hold fast
+setPlaceMode -place_global_place_io_pins true
 """)
