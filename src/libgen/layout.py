@@ -1,5 +1,7 @@
 from enum import Enum
 
+from numpy.lib.function_base import place
+
 import src.libgen.cell as c
 from src.global_constants import *
 from src.libgen.grammar import *
@@ -183,6 +185,7 @@ class Layout:
     Each element of `l` is a separate layer with M1 (top user-accessible layer)
     as the index [0] and other layers going consecutively downwards
     """
+
     def __init__(self, accessible_layers: int, l: list[str]):
         self.lout = l
         self.accessible_layers = accessible_layers
@@ -224,8 +227,8 @@ class Layout:
     """
 
         for lidx in range(self.accessible_layers):
-            layer_name = f"M{lidx+1}"
-            ar_idx = self.accessible_layers-1-lidx
+            layer_name = f"M{lidx + 1}"
+            ar_idx = self.accessible_layers - 1 - lidx
             blockages = set()
             visited = set()
             pin_wires = list()
@@ -238,7 +241,7 @@ class Layout:
                     CLASS CORE ;
                     ORIGIN 0 0 ;
                     FOREIGN {name} ;
-                    SIZE {len(lout[0]) * wire_width} BY {len(lout) * wire_width} ;
+                    SIZE {len(lout[0]) * placement_grid_size} BY {len(lout) * placement_grid_size} ;
                     SYMMETRY X Y ;
                     SITE mc_site ;
                 """
@@ -269,7 +272,7 @@ class Layout:
                 DIRECTION {direction} ;
                 PORT 
                 LAYER {layer_name} ;
-                RECT {w_c * wire_width + wire_offset} {w_r * wire_width + wire_offset} {(w_c+1) * wire_width + wire_offset} {(w_r+1)* wire_width + wire_offset} ;
+                RECT {w_c * placement_grid_size + wire_offset} {w_r * placement_grid_size + wire_offset} {w_c * placement_grid_size + wire_offset + wire_width} {w_r * placement_grid_size + wire_offset + wire_width} ;
                 END
             END {nm}
         """
@@ -286,14 +289,14 @@ class Layout:
                 for r in range(rows):
                     if (r, c) in invalid_blockage_locations:
                         if base != -1:
-                            cell_lef += f"RECT {c * wire_width + wire_offset} {base * wire_width + wire_offset} {(c+1) * wire_width + wire_offset} {(r-1)*wire_width + wire_offset+1} ;\n"
+                            cell_lef += f"RECT {c * placement_grid_size + wire_offset} {(base-1) * placement_grid_size + wire_offset} {c * placement_grid_size + wire_offset + wire_width} {r*placement_grid_size + wire_offset+ wire_width} ;\n"
                             base = -1
                         continue
                     if base == -1:
                         base = r
                         continue
                 if base != -1:
-                    cell_lef += f"RECT {c * wire_width + wire_offset} {base * wire_width + wire_offset} {(c+1) * wire_width + wire_offset} {(rows) * wire_width + wire_offset} ;\n"
+                    cell_lef += f"RECT {c * placement_grid_size + wire_offset} {(base-1) * placement_grid_size + wire_offset} {c * placement_grid_size + wire_offset + wire_width} {(rows-1) * placement_grid_size + wire_offset + wire_width} ;\n"
             cell_lef += "\tEND\n"
         cell_lef += f"END {name}\n"
         return cell_lef
