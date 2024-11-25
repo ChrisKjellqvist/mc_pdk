@@ -1,8 +1,8 @@
 from enum import Enum
 
-import src.liberty.cell as c
+import src.libgen.cell as c
 from src.global_constants import *
-from src.liberty.grammar import *
+from src.libgen.grammar import *
 
 """
 Having people install KLayout just to generate LEF files is a bit much. This module will generate LEF files
@@ -238,7 +238,7 @@ class Layout:
                     CLASS CORE ;
                     ORIGIN 0 0 ;
                     FOREIGN {name} ;
-                    SIZE {len(lout[0]) * grid_size} BY {len(lout) * grid_size} ;
+                    SIZE {len(lout[0]) * wire_width} BY {len(lout) * wire_width} ;
                     SYMMETRY X Y ;
                     SITE mc_site ;
                 """
@@ -269,7 +269,7 @@ class Layout:
                 DIRECTION {direction} ;
                 PORT 
                 LAYER {layer_name} ;
-                RECT {w_c * grid_size + grid_offset} {w_r * grid_size + grid_offset} {w_c * grid_size + 1 + grid_offset} {w_r* grid_size + 1 + grid_offset} ;
+                RECT {w_c * wire_width + wire_offset} {w_r * wire_width + wire_offset} {(w_c+1) * wire_width + wire_offset} {(w_r+1)* wire_width + wire_offset} ;
                 END
             END {nm}
         """
@@ -286,14 +286,14 @@ class Layout:
                 for r in range(rows):
                     if (r, c) in invalid_blockage_locations:
                         if base != -1:
-                            cell_lef += f"RECT {c * grid_size + grid_offset} {base * grid_size + grid_offset} {c * grid_size + grid_offset + 1} {(r-1)*grid_size+grid_offset+1} ;\n"
+                            cell_lef += f"RECT {c * wire_width + wire_offset} {base * wire_width + wire_offset} {(c+1) * wire_width + wire_offset} {(r-1)*wire_width + wire_offset+1} ;\n"
                             base = -1
                         continue
                     if base == -1:
                         base = r
                         continue
                 if base != -1:
-                    cell_lef += f"RECT {c * grid_size + grid_offset} {base * grid_size + grid_offset} {c * grid_size + grid_offset + 1} {(rows-1) * grid_size + grid_offset + 1} ;\n"
+                    cell_lef += f"RECT {c * wire_width + wire_offset} {base * wire_width + wire_offset} {(c+1) * wire_width + wire_offset} {(rows) * wire_width + wire_offset} ;\n"
             cell_lef += "\tEND\n"
         cell_lef += f"END {name}\n"
         return cell_lef

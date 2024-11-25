@@ -1,5 +1,5 @@
-import src.liberty.grammar as gr
-from src.liberty.layout import Layout
+import src.libgen.grammar as gr
+from src.libgen.layout import Layout
 
 COMBINATIONAL = 0
 SEQUENTIAL = 1
@@ -139,7 +139,7 @@ class Cell:
         self.name = name
         self.cell_type = cell_type
         # delay input is TICK! convert to ms
-        self.delay = delay * 50 # 50ms real-time per tick (20tps in game)
+        self.delay = delay
         self.area = area
         self.optional_preamble = optional_preamble
         self.optional_postamble = optional_postamble

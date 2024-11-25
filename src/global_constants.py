@@ -1,6 +1,9 @@
-import numpy as np
-grid_size = 1
+manufacturing_grid_size = 0.005
+pitch = manufacturing_grid_size * 40
 
+wire_width = manufacturing_grid_size * 8
+wire_offset = wire_width / 2
+wire_spacing = wire_width * 2
 
 def to_n_decimals(f: float, n: int) -> str:
     a = str(f)
@@ -8,5 +11,3 @@ def to_n_decimals(f: float, n: int) -> str:
         return a[:min(len(a)-1, n+1+a.index('.'))]
 
 
-min_spacing = to_n_decimals(grid_size * np.sqrt(2) + 1, 2)
-grid_offset = grid_size / 2 - 0.5

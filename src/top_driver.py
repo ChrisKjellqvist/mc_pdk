@@ -1,7 +1,7 @@
-from src.liberty import cell as c
-from src.physical.lefgen import export_lef
-from src.physical.capgen import gen_cap
-from src.physical.mapgen import gen_map
+from src.libgen import cell as c
+from src.libgen.lefgen import export_lef
+from src.libgen.capgen import gen_cap
+from src.libgen.mapgen import gen_map
 from src.cells import logic as tl
 import src.cells.sequential as ts
 import src.tcl.techfile as tech

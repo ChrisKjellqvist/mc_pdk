@@ -1,17 +1,13 @@
-from enum import Enum
-import src.liberty.cell as c
+import src.libgen.cell as c
 from src.global_constants import *
-import src.liberty.grammar
-from src.liberty.grammar import alphabet_input, alphabet_output
-import src.liberty.layout as layout
 
 
 def get_via_lef(i):
     return f"""
 LAYER VIA{i}
     TYPE CUT ;
-    SPACING {min_spacing} ;
-    PROPERTY LEF57_SPACING "SPACING {min_spacing} PARALLELOVERLAP ;" ;
+    SPACING {wire_spacing} ;
+    PROPERTY LEF57_SPACING "SPACING {wire_spacing} PARALLELOVERLAP ;" ;
 END VIA{i}
 """
 
@@ -21,12 +17,12 @@ def get_layer_lef(i):
 LAYER M{i}
     TYPE ROUTING ;
     DIRECTION {"HORIZONTAL" if i % 2 == 1 else "VERTICAL"} ;
-    PITCH 1 ;
-    WIDTH 0.01 ;
+    PITCH {pitch} ;
+    WIDTH {wire_width} ;
     SPACING 0.02 ;
     AREA 0.02 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
 
-    PROPERTY LEF57_SPACING "SPACING {min_spacing} ENDOFLINE {grid_size} WITHIN {grid_size} PARALLELEDGE {grid_size} WITHIN {grid_size} ;" ;
+    PROPERTY LEF57_SPACING "SPACING {wire_spacing} ENDOFLINE {wire_spacing} WITHIN {wire_spacing} PARALLELEDGE {wire_spacing} WITHIN {wire_spacing} ;" ;
 END M{i}
 """
 
@@ -36,18 +32,13 @@ def get_via_def_between(i, j):
     return f"""
 VIA VIA{i}{j} DEFAULT
     LAYER M{j} ;
-        RECT -1 -1.5 1 1.5 ;
+        RECT -{wire_width} -{wire_width} {wire_width} {wire_width} ;
     LAYER VIA{i} ;
-        RECT -1 -1 1 1 ;
+        RECT -{wire_width} -{wire_width} {wire_width} {wire_width} ;
     LAYER M{i} ;
-        RECT -1 -1.5 1 1.5 ;
+        RECT -{wire_width} -{wire_width} {wire_width} {wire_width} ;
 END VIA{i}{j}
 """
-
-def get_viarule_between(i, j):
-    return f"""
-"""
-
 
 def export_lef(n_layers, ofile):
     to_write = f"""VERSION 5.6 ;
@@ -58,7 +49,7 @@ UNITS
     DATABASE MICRONS 100 ;
 END UNITS
 
-MANUFACTURINGGRID 0.005 ;
+MANUFACTURINGGRID {manufacturing_grid_size} ;
 PROPERTYDEFINITIONS
     LAYER LEF57_SPACING STRING ;
     LAYER LEF57_MINSTEP STRING ;
