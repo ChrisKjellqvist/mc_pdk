@@ -164,7 +164,7 @@ def declare_sequential_cells():
     """,
         other_ipins=[("E", True), ("R", True)],
         layout=Layout(1, ["e   g   lb1 w   dt  e\n"
-                       "Dw  dt  ub1 e   s   Dw\n"
+                       "Qw  dt  ub1 e   s   Dw\n"
                        "e   ut  w   e   e   e\n"
                        "e   s   lt  s   w   Rw\n"
                        "e   ~w  e   Ew  e   e",

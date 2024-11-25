@@ -255,18 +255,22 @@ class Layout:
                     pin_wires.append((ele.pin_name, (i, j)))
             for i, (w_r, w_c) in pin_wires:
                 direction = "OUTPUT"
+                if i == '~':
+                    nm = "CLK"
+                else:
+                    nm = i
                 for iwr in ipins:
                     if iwr.name == i:
                         direction = "INPUT"
                         break
                 cell_lef += f"""
-            PIN {i}
+            PIN {nm}
                 DIRECTION {direction} ;
                 PORT 
                 LAYER {layer_name} ;
                 RECT {w_c * grid_size + grid_offset} {w_r * grid_size + grid_offset} {w_c * grid_size + 1 + grid_offset} {w_r* grid_size + 1 + grid_offset} ;
                 END
-            END {i}
+            END {nm}
         """
             cell_lef += f"\n\tOBS\n\t\tLAYER {layer_name} ;\n"
 

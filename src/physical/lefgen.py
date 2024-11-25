@@ -36,27 +36,16 @@ def get_via_def_between(i, j):
     return f"""
 VIA VIA{i}{j} DEFAULT
     LAYER M{j} ;
-        RECT -{min_spacing} -{min_spacing} {min_spacing} {min_spacing} ;
+        RECT -1 -1.5 1 1.5 ;
     LAYER VIA{i} ;
         RECT -1 -1 1 1 ;
     LAYER M{i} ;
-        RECT -{min_spacing} -{min_spacing} {min_spacing} {min_spacing} ;
+        RECT -1 -1.5 1 1.5 ;
 END VIA{i}{j}
 """
 
 def get_viarule_between(i, j):
     return f"""
-VIARULE VIAGEN{i} GENERATE
-    LAYER M{j} ;
-        ENCLOSURE {min_spacing} {min_spacing} ;
-        WIDTH {min_spacing} TO {min_spacing} ;
-    LAYER VIA{i} ;
-        ENCLOSURE {min_spacing} {min_spacing} ;
-        WIDTH {min_spacing} TO {min_spacing} ;
-    LAYER M{i} ;
-        ENCLOSURE {min_spacing} {min_spacing} ;
-        WIDTH {min_spacing} TO {min_spacing} ;
-END VIDAGEN{i}
 """
 
 
@@ -69,7 +58,7 @@ UNITS
     DATABASE MICRONS 100 ;
 END UNITS
 
-MANUFACTURINGGRID {grid_size} ;
+MANUFACTURINGGRID 0.01 ;
 PROPERTYDEFINITIONS
     LAYER LEF57_SPACING STRING ;
     LAYER LEF57_MINSTEP STRING ;

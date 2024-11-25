@@ -9,6 +9,7 @@ setDesignMode -process 65
 source {home}/pdk_gen/techfile.tcl
 set DESIGN_NAME top
 set SYN_PATH {home}/run/syn_out/
+suppressMessage TECHLIB-1329
 """)
     with open(home + "/run/2_init.tcl", 'w') as f:
         f.write(f"""

@@ -50,15 +50,15 @@ LAYER M{i}
         RhoValues   {rho_wire} 
                     {rho_wire}
 END
-
-LAYER VIA{i}
+""" + (f"""
+VIA VIA{i}
     TopLayer    M{i+1}
     BottomLayer M{i}
     ThermalC1   0.0001
     ThermalC2   0.0001
     Resistance  {R_wire_15l}
 END
-""")
+""" if i != n_layers else ""))
         f.write("""END_PROCESS_VARIATION\n\nBASIC_CAP_TABLE ...\n""")
         for i in range(1, n_layers+1):
             f.write(f"""M{i}
