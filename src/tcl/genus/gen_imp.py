@@ -6,8 +6,8 @@ def gen_imp():
     with open(home + "/run/1_setup.tcl", 'w') as f:
         f.write(f"""
 setDesignMode -process 65
-source {home}/pdk_gen/
-set DESIGN_NAME SystolicArray_4x1024x8x5
+source {home}/pdk_gen/techfile.tcl
+set DESIGN_NAME top
 set SYN_PATH {home}/run/syn_out/
 """)
     with open(home + "/run/2_init.tcl", 'w') as f:

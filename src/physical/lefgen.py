@@ -78,8 +78,8 @@ END PROPERTYDEFINITIONS
 
     for i in range(1, n_layers + 1):
         to_write += get_layer_lef(i)
-    for i in range(1, n_layers):
-        to_write += get_via_lef(i)
+        if i != n_layers:
+            to_write += get_via_lef(i)
     for i in range(1, n_layers):
         to_write += get_via_def_between(i, i+1)
     # for i in range(1, n_layers):
