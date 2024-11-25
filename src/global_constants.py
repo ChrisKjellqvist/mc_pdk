@@ -1,5 +1,5 @@
 import numpy as np
-grid_size = 5
+grid_size = 1
 
 
 def to_n_decimals(f: float, n: int) -> str:
