@@ -1,7 +1,7 @@
 import os
 
 
-def gen_syn_for_top(top: str):
+def gen_syn_for_top(top: str, ifile: str, clock_pin: str):
     with open(os.getcwd() + "/run/0_syn_genus.tcl", 'w') as f:
         f.write(f"""
 source {os.getcwd()}/pdk_gen/techfile.tcl
@@ -12,7 +12,7 @@ set_db library [list $slow_lib]
 set_db interconnect_mode wireload
 
 # read in sources
-read_hdl -language sv "{top}.v"
+read_hdl -language sv "{ifile}.v"
 
 set toplevel {top}
 # elaborate
@@ -20,7 +20,7 @@ elaborate $toplevel
 
 # constraints. set clock to whatever. time units is ticks
 set clock_period 25
-create_clock -name clk -period $clock_period clock
+create_clock -name clk -period $clock_period {clock_pin}
 
 # make sure you add input and output delays
 # set_input_delay -clock clk 1 [get_object_name [get_ports -filter direction==in io*]]

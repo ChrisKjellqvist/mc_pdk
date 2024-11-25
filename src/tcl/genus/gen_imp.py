@@ -1,14 +1,15 @@
 import os
 
 
-def gen_imp():
+def gen_imp(top_module: str):
     home = os.getcwd()
     with open(home + "/run/1_setup.tcl", 'w') as f:
         f.write(f"""
 setDesignMode -process 65
 source {home}/pdk_gen/techfile.tcl
-set DESIGN_NAME top
+set DESIGN_NAME {top_module}
 set SYN_PATH {home}/run/syn_out/
+# disable warnings for the liberty file lacking power model
 suppressMessage TECHLIB-1329
 """)
     with open(home + "/run/2_init.tcl", 'w') as f:
