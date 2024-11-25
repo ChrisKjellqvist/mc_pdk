@@ -2,8 +2,8 @@ from src.liberty import cell as c
 from src.physical.lefgen import export_lef
 from src.physical.capgen import gen_cap
 from src.physical.mapgen import gen_map
-from src.cells import top_logic as tl
-import top_sequential as ts
+from src.cells import logic as tl
+import src.cells.sequential as ts
 import src.tcl.techfile as tech
 
 if __name__ == "__main__":
