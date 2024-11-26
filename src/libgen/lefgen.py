@@ -66,7 +66,7 @@ END PROPERTYDEFINITIONS
     #     to_write += get_viarule_between(i, i+1)
     to_write += f"""
 SITE mc_site
-    SIZE {wire_width} BY {wire_width} ;
+    SIZE {placement_grid_size} BY {placement_grid_size*4} ;
     CLASS CORE ;
     SYMMETRY Y ;
 END mc_site

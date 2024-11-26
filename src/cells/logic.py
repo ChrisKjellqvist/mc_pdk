@@ -1,122 +1,88 @@
 from src.libgen import cell as c, grammar as gr
 from src.libgen.cell import InputPin, OutputPin
+from src.libgen.grammar import alphabet_input
 from src.libgen.layout import Layout
 
 
 def declare_logical_cells():
     # OR gate
-    def gen_orn(n_inputs):
-        assert 7 >= n_inputs >= 2
-        input_wires = ' w '.join([f'{nm}w' for nm in gr.alphabet_input[:n_inputs]])
-        c.Cell("OR%d" % n_inputs,
-               c.COMBINATIONAL,
-               0,
-               3 * (2 * n_inputs - 1),
-               [InputPin(gr.alphabet_input[i]) for i in range(n_inputs)],
-               [OutputPin("Y", "+".join(gr.alphabet_input[:n_inputs]))],
-               layout=Layout(1, [f"""e Yw e {'e ' * max(0, (2 * (n_inputs - 1) - 1))} 
-                          w  w w {'w ' * max(0, (2 * (n_inputs - 1) - 1))}
-                          {input_wires}"""]))
-        for i in range(1, n_inputs):
-            f = list(gr.alphabet_input[:n_inputs])
-            for j in range(i):
-                f[j] = "!" + f[j]
-            # input wires are the same, but now we have two rows of target+torch to account
-            # we'll handle each layer individually
-            l1 = "Yw" + " e" * (2 * n_inputs - 1)
-            l2 = "w".join("w" * n_inputs)
-            l3 = []
-            l4 = []
-            l5 = []
-            for j in range(n_inputs):
-                if j < i:
-                    l3.append("dt")
-                    l4.append("s")
-                else:
-                    l3.append("w")
-                    l4.append("w")
-                l5.append(gr.alphabet_input[j] + "w")
-            l3 = " w ".join(l3)
-            l4 = " e ".join(l4)
-            l5 = " e ".join(l5)
-            c.Cell(f"OR{n_inputs}_{i}",
-                   c.COMBINATIONAL,
-                   delay=1,
-                   area=5 * (2 * n_inputs - 1),
-                   ipins=[InputPin(gr.alphabet_input[i]) for i in range(n_inputs)],
-                   opins=[OutputPin("Y", "+".join(f))],
-                   layout=Layout(1, [f"{l1}\n{l2}\n{l3}\n{l4}\n{l5}"]))
+    def j(l):
+        return " ".join(l)
 
-    def gen_norn(n_inputs):
-        """
-        NOR with inverted inputs (all inputs inverted equivalent to AND)
-        :param n_inputs:
-        :return:
-        """
-        assert 7 >= n_inputs >= 2
-        for i in range(n_inputs):
-            f = list(gr.alphabet_input[:n_inputs])
-            for j in range(i):
-                f[j] = "!" + f[j]
-            lins = n_inputs // 2
-            rins = n_inputs - lins
-            l1 = (' e '.join('e' * lins)) + ' Ydt ' + (' e '.join('e' * rins))
-            l2 = (' w '.join('w' * lins)) + ' s ' + (' w '.join('w' * rins))
-            l3 = []
-            l4 = []
-            l5 = []
-            for j in range(n_inputs):
-                if j < i:
-                    l3.append('dt')
-                    l4.append('s')
-                else:
-                    l3.append('w')
-                    l4.append('w')
-                l5.append(f'{gr.alphabet_input[j]}w')
-
-            l3 = ' e '.join(l3)
-            l4 = ' e '.join(l4)
-            l5 = ' e '.join(l5)
-            rows = [l1, l2, l3, l4, l5]
-            c.Cell(f"NOR{n_inputs}_{i}",
-                   c.COMBINATIONAL,
-                   delay=2,
-                   area=5 * (2 * n_inputs - 1),
-                   ipins=[InputPin(gr.alphabet_input[q]) for q in range(n_inputs)],
-                   opins=[OutputPin("Y", f"!({'*'.join(f)})")],
-                   layout=Layout(1, ['\n'.join(rows)]))
-
-    # ANDS gate - AND "sparse"
-    # yikes
-    # c.Cell("AND2", c.COMBINATIONAL, 2, 18, [InputPin("A"), InputPin("B")], [OutputPin("Y", "A*B")])
-
+    def get_or_combos(up_to):
+        for n_inputs in range(2, up_to + 1):
+            # gonna be 2 * n_inputs - 1 wide
+            left = n_inputs // 2
+            right = n_inputs - left
+            topup = j("e" * (left * 2 - 1)) + " Yw " + j("e" * (right * 2 - 1))
+            topdown = j("g" * (n_inputs * 2 - 1))
+            midupneg = j("e" * (left * 2 - 1)) + " mt " + j("e" * (right * 2 - 1))
+            middownneg = j("w" * (left * 2 - 1)) + " s " + j("w" * (right * 2 - 1))
+            miduppos = j("e" * (left * 2 - 1)) + " w " + j("e" * (right * 2 - 1))
+            middownpos = j("w" * (left * 2 - 1)) + " g " + j("w" * (right * 2 - 1))
+            inpup = list(alphabet_input[:n_inputs])
+            inpdown = j("g" * (2 * n_inputs - 1))
+            connup = j("e" * (2 * n_inputs - 1))
+            inpup = "w ".join(inpup) + "w"
+            ilist = []
+            for i in range(n_inputs):
+                ilist.append(c.InputPin(name=alphabet_input[i],
+                                        is_clock=False))
+            for i in range(n_inputs):
+                ofun = []
+                conn = ""
+                for k in range(i):
+                    conn += "ub1"
+                    ofun.append(f"{alphabet_input[k]}")
+                    if k != n_inputs - 1:
+                        conn += " g "
+                for k in range(i, n_inputs):
+                    conn += "dt"
+                    ofun.append(f"!{alphabet_input[k]}")
+                    if k != n_inputs - 1:
+                        conn += " g "
+                c.Cell(name=f"NORN{n_inputs}_{i}",
+                       cell_type=c.COMBINATIONAL,
+                       delay=2,
+                       area=4 * (2 * n_inputs - 1),
+                       ipins=ilist,
+                       opins=[c.OutputPin(name="Y", f=f"!({'+'.join(ofun)})")],
+                       layout=Layout(accessible_layers=1,
+                                     l=[f"{topup}\n{midupneg}\n{connup}\n{inpup}",
+                                        f"{topdown}\n{middownneg}\n{conn}\n{inpdown}"]))
+                c.Cell(name=f"ORN{n_inputs}_{i}",
+                       cell_type=c.COMBINATIONAL,
+                       delay=1,
+                       area=4 * (2 * n_inputs - 1),
+                       ipins=ilist,
+                       opins=[c.OutputPin(name="Y", f=f"{'+'.join(ofun)}")],
+                       layout=Layout(accessible_layers=1,
+                                     l=[f"{topup}\n{miduppos}\n{connup}\n{inpup}",
+                                        f"{topdown}\n{middownpos}\n{conn}\n{inpdown}"]))
     # # INV
     c.Cell("INV",
            c.COMBINATIONAL,
            delay=1,
-           area=9,
+           area=4,
            ipins=[InputPin("A")],
            opins=[OutputPin("Y", "!A")],
-           layout=Layout(1, ["e Ydt e\ne s e\ne Aw e"]))
-
-    # NAND
-    c.Cell("NAND2",
-           c.COMBINATIONAL,
-           delay=2,
-           area=9,
-           ipins=[InputPin("A"), InputPin("B")],
-           opins=[OutputPin("Y", "!(A*B)")],
-           layout=Layout(1, ["dt Yw dt\ns e s\nAw e Bw"]))
+           layout=Layout(accessible_layers=1,
+                         l=["Yw\n"
+                            "dt\n"
+                            "s\n"
+                            "Aw"]))
 
     c.Cell("NOR2_S",
            c.COMBINATIONAL,
-           1, 9,
+           1, 12,
            ipins=[c.InputPin("A"),
                   c.InputPin("B")],
            opins=[OutputPin("Y", "!(A+B)")],
-           layout=Layout(1, ["e  Yw  e\n"
-                             "e  dt  e\n"
-                             "Aw s  Bw"]))
+           layout=Layout(accessible_layers=1,
+                         l=["e  Yw e\n"
+                            "e  w  e\n"
+                            "e  dt  e\n"
+                            "Aw s  Bw"]))
     c.Cell("NOR3_S",
            c.COMBINATIONAL,
            1, 12,
@@ -124,15 +90,13 @@ def declare_logical_cells():
                   c.InputPin("B"),
                   c.InputPin("C")],
            opins=[OutputPin("Y", "!(A+B+C)")],
-           layout=Layout(1, ["e  Yw  e\n"
-                          "e  dt  e\n"
-                          "Aw s  Bw\n"
-                          "e  Cw  e"]))
+           layout=Layout(accessible_layers=1,
+                         l=["e  Yw  e\n"
+                            "e  dt  e\n"
+                            "Aw s  Bw\n"
+                            "e  Cw  e"]))
 
-    # OR2,3,4,5
-    for i in range(5):
-        gen_orn(i + 2)
-        gen_norn(i + 2)
+    get_or_combos(8)
 
     c.Cell("MUX2",
            c.COMBINATIONAL,
@@ -140,25 +104,28 @@ def declare_logical_cells():
            area=20,
            ipins=[InputPin("A"), InputPin("B"), InputPin("S")],
            opins=[OutputPin("Y", "A*S + B*!S")],
-           layout=Layout(1, [f" e  e mt Yw mt\n"
-                          f" e  e dt  g dt\n"
-                          f" e  e  s  g  g \n"
-                          f"Sw  e Bw  e Aw",
+           layout=Layout(accessible_layers=1,
+                         l=[f" e  e mt Yw mt\n"
+                            f" e  e dt  g dt\n"
+                            f" e  e  s  g  g \n"
+                            f"Sw  e Bw  e Aw",
 
-                          f"dt  w  s  g  s\n"
-                          f" s  e  w  e  w\n"
-                          f" w  w rb  w  w\n"
-                          f" g  g  g  g  g"]))
+                            f"dt  w  s  g  s\n"
+                            f" s  e  w  e  w\n"
+                            f" w  w rb  w  w\n"
+                            f" g  g  g  g  g"]))
 
     c.Cell("BUF",
            c.COMBINATIONAL,
            delay=0,
-           area=9,
+           area=12,
            ipins=[InputPin("A")],
            opins=[OutputPin("Y", "A")],
-           layout=Layout(1, ["e Yw e\n"
-                          "e ub e\n"
-                          "e Aw e"]))
+           layout=Layout(accessible_layers=1,
+                         l=["e Yw e\n"
+                            "e w e\n"
+                            "e ub e\n"
+                            "e Aw e"]))
     c.Cell("XOR",
            c.COMBINATIONAL,
            delay=3,

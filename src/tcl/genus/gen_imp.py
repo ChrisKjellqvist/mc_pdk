@@ -66,4 +66,5 @@ set init_gnd_net {{VSS}}
 
 init_design -setup slow -hold fast
 setPlaceMode -place_global_place_io_pins true
+setDesignMode -topRoutingLayer 9 -bottomRoutingLayer 1
 """)
