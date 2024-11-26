@@ -142,3 +142,14 @@ def declare_logical_cells():
                              "e e e w e\n"
                              "g s w w e\n"
                              "e e g e g"]))
+    c.Cell("BUFF",
+           c.COMBINATIONAL,
+           delay=1,
+           area=4,
+           ipins=[InputPin("I")],
+           opins=[OutputPin("Z", f="I")],
+           layout=Layout(accessible_layers=1,
+                         l=["Zw\n"
+                            "w\n"
+                            "ub1\n"
+                            "Iw"]))
