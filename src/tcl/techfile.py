@@ -15,5 +15,8 @@ set slow_rc {home}/pdk_gen/cap.captable
 set fast_rc $slow_rc
 
 set tech_map_file {home}/pdk_gen/tech.map
+
+set CLOCK_BUFFERS BUFF*
+set CLOCK_INVERTERS INV*
 """)
 
