@@ -239,10 +239,10 @@ class Layout:
                 cell_lef = f"""
                 MACRO {name}
                     CLASS CORE ;
-                    ORIGIN {placement_grid_size/2} 0 ;
+                    ORIGIN {placement_grid_size/2} {placement_grid_size/2} ;
                     FOREIGN {name} ;
                     SIZE {(len(lout[0])+1) * placement_grid_size} BY {(len(lout)+1) * placement_grid_size} ;
-                    SYMMETRY X ;
+                    SYMMETRY X Y ;
                     SITE mc_site ;
                 """
             for i in range(rows):
