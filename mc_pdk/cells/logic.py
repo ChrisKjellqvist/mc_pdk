@@ -43,24 +43,25 @@ def declare_logical_cells():
                     if k != n_inputs - 1:
                         conn += " g "
                 q = c.Cell(name=f"NORN{n_inputs}_{i}",
-                       cell_type=c.COMBINATIONAL,
-                       delay=2,
-                       area=4 * (2 * n_inputs - 1),
-                       ipins=ilist,
-                       opins=[c.OutputPin(name="Y", f=f"!({'+'.join(ofun)})")],
-                       layout=Layout(accessible_layers=1,
-                                     l=[f"{topup}\n{midupneg}\n{connup}\n{inpup}",
-                                        f"{topdown}\n{middownneg}\n{conn}\n{inpdown}"]))
+                           cell_type=c.COMBINATIONAL,
+                           delay=2,
+                           area=4 * (2 * n_inputs - 1),
+                           ipins=ilist,
+                           opins=[c.OutputPin(name="Y", f=f"!({'+'.join(ofun)})")],
+                           layout=Layout(accessible_layers=1,
+                                         l=[f"{topup}\n{midupneg}\n{connup}\n{inpup}",
+                                            f"{topdown}\n{middownneg}\n{conn}\n{inpdown}"]))
                 r = c.Cell(name=f"ORN{n_inputs}_{i}",
-                       cell_type=c.COMBINATIONAL,
-                       delay=1,
-                       area=4 * (2 * n_inputs - 1),
-                       ipins=ilist,
-                       opins=[c.OutputPin(name="Y", f=f"{'+'.join(ofun)}")],
-                       layout=Layout(accessible_layers=1,
-                                     l=[f"{topup}\n{miduppos}\n{connup}\n{inpup}",
-                                        f"{topdown}\n{middownpos}\n{conn}\n{inpdown}"]))
+                           cell_type=c.COMBINATIONAL,
+                           delay=1,
+                           area=4 * (2 * n_inputs - 1),
+                           ipins=ilist,
+                           opins=[c.OutputPin(name="Y", f=f"{'+'.join(ofun)}")],
+                           layout=Layout(accessible_layers=1,
+                                         l=[f"{topup}\n{miduppos}\n{connup}\n{inpup}",
+                                            f"{topdown}\n{middownpos}\n{conn}\n{inpdown}"]))
                 # print(r.layout.lout)
+
     # # INV
     c.Cell("INV",
            c.COMBINATIONAL,
@@ -135,15 +136,17 @@ def declare_logical_cells():
            ipins=[InputPin("A"),
                   InputPin("B")],
            opins=[OutputPin("Y", "!((A*B)+(!A*!B))")],
-           layout=Layout(1, ["e e w s w\n"
-                             "e e ut dt ut\n"
-                             "Yw mt s dt s\n"
-                             "e e Aw s Bw",
+           # TODO FIX
+           layout=Layout(accessible_layers=1,
+                         l=["e e w s w\n"
+                            "e e dt dt ut\n"
+                            "Yw mt s dt s\n"
+                            "e e Aw s Bw",
 
-                             "e e g e g\n"
-                             "e e e w e\n"
-                             "g s w w e\n"
-                             "e e g e g"]))
+                            "g g g g g\n"
+                            "g g g w g\n"
+                            "g s w w g\n"
+                            "g g g g g"]))
     c.Cell("BUFF",
            c.COMBINATIONAL,
            delay=1,
