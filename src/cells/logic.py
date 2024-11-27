@@ -20,10 +20,11 @@ def declare_logical_cells():
             middownneg = j("w" * (left * 2 - 1)) + " s " + j("w" * (right * 2 - 1))
             miduppos = j("e" * (left * 2 - 1)) + " w " + j("e" * (right * 2 - 1))
             middownpos = j("w" * (left * 2 - 1)) + " g " + j("w" * (right * 2 - 1))
-            inpup = list(alphabet_input[:n_inputs])
+            inpup = [f"{x}w" for x in list(alphabet_input[:n_inputs])]
             inpdown = j("g" * (2 * n_inputs - 1))
             connup = j("e" * (2 * n_inputs - 1))
-            inpup = "w ".join(inpup) + "w"
+            inpup = " e ".join(inpup)
+            # print(inpup)
             ilist = []
             for i in range(n_inputs):
                 ilist.append(c.InputPin(name=alphabet_input[i],
@@ -41,7 +42,7 @@ def declare_logical_cells():
                     ofun.append(f"!{alphabet_input[k]}")
                     if k != n_inputs - 1:
                         conn += " g "
-                c.Cell(name=f"NORN{n_inputs}_{i}",
+                q = c.Cell(name=f"NORN{n_inputs}_{i}",
                        cell_type=c.COMBINATIONAL,
                        delay=2,
                        area=4 * (2 * n_inputs - 1),
@@ -50,7 +51,7 @@ def declare_logical_cells():
                        layout=Layout(accessible_layers=1,
                                      l=[f"{topup}\n{midupneg}\n{connup}\n{inpup}",
                                         f"{topdown}\n{middownneg}\n{conn}\n{inpdown}"]))
-                c.Cell(name=f"ORN{n_inputs}_{i}",
+                r = c.Cell(name=f"ORN{n_inputs}_{i}",
                        cell_type=c.COMBINATIONAL,
                        delay=1,
                        area=4 * (2 * n_inputs - 1),
@@ -59,6 +60,7 @@ def declare_logical_cells():
                        layout=Layout(accessible_layers=1,
                                      l=[f"{topup}\n{miduppos}\n{connup}\n{inpup}",
                                         f"{topdown}\n{middownpos}\n{conn}\n{inpdown}"]))
+                # print(r.layout.lout)
     # # INV
     c.Cell("INV",
            c.COMBINATIONAL,

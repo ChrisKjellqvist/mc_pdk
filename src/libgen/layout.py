@@ -267,6 +267,7 @@ class Layout:
                     if iwr.name == i:
                         direction = "INPUT"
                         break
+                # print(f"wire ${nm} is at {w_r}, {w_c} in {name}: {w_c * placement_grid_size + wire_offset}")
                 cell_lef += f"""
             PIN {nm}
                 DIRECTION {direction} ;
