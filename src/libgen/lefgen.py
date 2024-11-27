@@ -19,10 +19,10 @@ LAYER M{i}
     DIRECTION {"HORIZONTAL" if i % 2 == 1 else "VERTICAL"} ;
     PITCH {pitch} ;
     WIDTH {wire_width} ;
-    SPACING 0.02 ;
-    AREA 0.02 ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
+    SPACING {wire_spacing} ;
+    AREA {wire_width*wire_width} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
 
-    PROPERTY LEF57_SPACING "SPACING {wire_spacing} ENDOFLINE {wire_spacing} WITHIN {wire_spacing} PARALLELEDGE {wire_spacing} WITHIN {wire_spacing} ;" ;
+    PROPERTY LEF57_SPACING "SPACING {wire_spacing} ENDOFLINE {wire_spacing} WITHIN {wire_width} PARALLELEDGE {wire_spacing} WITHIN {wire_width} ;" ;
 END M{i}
 """
 
@@ -32,11 +32,11 @@ def get_via_def_between(i, j):
     return f"""
 VIA VIA{i}{j} DEFAULT
     LAYER M{j} ;
-        RECT -{wire_width} -{wire_width} {wire_width} {wire_width} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
     LAYER VIA{i} ;
-        RECT -{wire_width} -{wire_width} {wire_width} {wire_width} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
     LAYER M{i} ;
-        RECT -{wire_width} -{wire_width} {wire_width} {wire_width} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
 END VIA{i}{j}
 """
 
@@ -66,9 +66,9 @@ END PROPERTYDEFINITIONS
     #     to_write += get_viarule_between(i, i+1)
     to_write += f"""
 SITE mc_site
-    SIZE {placement_grid_size} BY {placement_grid_size*4} ;
+    SIZE {placement_grid_size} BY {placement_grid_size*5} ;
     CLASS CORE ;
-    SYMMETRY Y ;
+    SYMMETRY X Y ;
 END mc_site
 """
     for cell in c.cells:

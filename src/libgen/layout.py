@@ -241,8 +241,8 @@ class Layout:
                     CLASS CORE ;
                     ORIGIN 0 0 ;
                     FOREIGN {name} ;
-                    SIZE {len(lout[0]) * placement_grid_size} BY {len(lout) * placement_grid_size} ;
-                    SYMMETRY X Y ;
+                    SIZE {len(lout[0]) * placement_grid_size} BY {(len(lout)+1) * placement_grid_size} ;
+                    SYMMETRY Y ;
                     SITE mc_site ;
                 """
             for i in range(rows):
