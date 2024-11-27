@@ -1,5 +1,5 @@
 manufacturing_grid_size = 0.05
-pitch = manufacturing_grid_size * 200
+pitch = manufacturing_grid_size * 100
 
 
 def to_n_decimals(f: float, n: int) -> str:
@@ -16,10 +16,12 @@ wire_width = manufacturing_grid_size*2
 placement_grid_size = to_n_decimals_flt(manufacturing_grid_size * 100, 4)
 # offset should put wire in teh middle of the placement grid
 wire_offset = to_n_decimals_flt(placement_grid_size / 2 - wire_width / 2, 4)
-wire_spacing = to_n_decimals_flt(placement_grid_size - wire_width, 4)
+wire_spacing_PARALLEL = to_n_decimals_flt(placement_grid_size - wire_width, 4)
+wire_spacing_EOL = to_n_decimals_flt(placement_grid_size*2 - wire_width, 4)
 
 print(f"""Wire width: {wire_width}
 Placement grid size: {placement_grid_size}
 Wire_off: {wire_offset}
-wire_space: {wire_spacing}""")
+wire_space: {wire_spacing_PARALLEL}
+wire_space_eol: {wire_spacing_EOL}""")
 

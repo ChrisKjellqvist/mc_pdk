@@ -6,8 +6,8 @@ def get_via_lef(i):
     return f"""
 LAYER VIA{i}
     TYPE CUT ;
-    SPACING {wire_spacing} ;
-    PROPERTY LEF57_SPACING "SPACING {wire_spacing} PARALLELOVERLAP ;" ;
+    SPACING {wire_spacing_PARALLEL} ;
+    PROPERTY LEF57_SPACING "SPACING {wire_spacing_PARALLEL} PARALLELOVERLAP ;" ;
 END VIA{i}
 """
 
@@ -19,10 +19,10 @@ LAYER M{i}
     DIRECTION {"HORIZONTAL" if i % 2 == 1 else "VERTICAL"} ;
     PITCH {pitch} ;
     WIDTH {wire_width} ;
-    SPACING {wire_spacing} ;
+    SPACING {wire_spacing_PARALLEL} ;
     AREA {wire_width*placement_grid_size} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
 
-    PROPERTY LEF57_SPACING "SPACING {wire_spacing} ENDOFLINE {wire_spacing} WITHIN {wire_width} PARALLELEDGE {wire_spacing} WITHIN {wire_spacing} ;" ;
+    PROPERTY LEF57_SPACING "SPACING {wire_spacing_EOL} ENDOFLINE {wire_width} WITHIN {wire_spacing_PARALLEL} ; " ;
 END M{i}
 """
 
