@@ -242,7 +242,7 @@ class Layout:
                     ORIGIN {placement_grid_size/2} {placement_grid_size/2} ;
                     FOREIGN {name} ;
                     SIZE {(len(lout[0])+1) * placement_grid_size} BY {(len(lout)+1) * placement_grid_size} ;
-                    SYMMETRY X Y ;
+                    SYMMETRY X ;
                     SITE mc_site ;
                 """
             for i in range(rows):
@@ -276,27 +276,5 @@ class Layout:
                 END
             END {nm}
         """
-            cell_lef += f"\n\tOBS\n\t\tLAYER {layer_name} ;\n"
-
-            invalid_blockage_locations = set()
-            for _, (i ,j) in pin_wires:
-                for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1), (0, 0)]:
-                    invalid_blockage_locations.add((i+di, j+dj))
-
-            for c in range(cols):
-                # find base row to start a blockage
-                base = -1
-                for r in range(rows):
-                    if (r, c) in invalid_blockage_locations:
-                        if base != -1:
-                            cell_lef += f"RECT {c * placement_grid_size + wire_offset} {(base-1) * placement_grid_size + wire_offset} {c * placement_grid_size + wire_offset + wire_width} {r*placement_grid_size + wire_offset+ wire_width} ;\n"
-                            base = -1
-                        continue
-                    if base == -1:
-                        base = r
-                        continue
-                if base != -1:
-                    cell_lef += f"RECT {c * placement_grid_size + wire_offset} {(base-1) * placement_grid_size + wire_offset} {c * placement_grid_size + wire_offset + wire_width} {(rows-1) * placement_grid_size + wire_offset + wire_width} ;\n"
-            cell_lef += "\tEND\n"
         cell_lef += f"END {name}\n"
         return cell_lef
