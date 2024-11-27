@@ -242,7 +242,7 @@ class Layout:
                     ORIGIN 0 0 ;
                     FOREIGN {name} ;
                     SIZE {len(lout[0]) * placement_grid_size} BY {(len(lout)+1) * placement_grid_size} ;
-                    SYMMETRY Y ;
+                    SYMMETRY X ;
                     SITE mc_site ;
                 """
             for i in range(rows):
