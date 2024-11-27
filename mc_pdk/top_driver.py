@@ -1,10 +1,10 @@
-from src.libgen import cell as c
-from src.libgen.lefgen import export_lef
-from src.libgen.capgen import gen_cap
-from src.libgen.mapgen import gen_map
-from src.cells import logic as tl
-import src.cells.sequential as ts
-import src.tcl.techfile as tech
+from mc_pdk.libgen import cell as c
+from mc_pdk.libgen.lefgen import export_lef
+from mc_pdk.libgen.capgen import gen_cap
+from mc_pdk.libgen.mapgen import gen_map
+from mc_pdk.cells import logic as tl
+import mc_pdk.cells.sequential as ts
+import mc_pdk.tcl.techfile as tech
 
 if __name__ == "__main__":
     c.init_cells()

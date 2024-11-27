@@ -1,5 +1,5 @@
-from src.libgen import cell as c
-from src.libgen.layout import Layout
+from mc_pdk.libgen import cell as c
+from mc_pdk.libgen.layout import Layout
 
 
 def declare_sequential_cells():

@@ -1,5 +1,5 @@
-import src.libgen.cell as c
-from src.global_constants import *
+import mc_pdk.libgen.cell as c
+from mc_pdk.global_constants import *
 
 
 def get_via_lef(i):

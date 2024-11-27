@@ -2,9 +2,9 @@ from enum import Enum
 
 from numpy.lib.function_base import place
 
-import src.libgen.cell as c
-from src.global_constants import *
-from src.libgen.grammar import *
+import mc_pdk.libgen.cell as c
+from mc_pdk.global_constants import *
+from mc_pdk.libgen.grammar import *
 
 """
 Having people install KLayout just to generate LEF files is a bit much. This module will generate LEF files

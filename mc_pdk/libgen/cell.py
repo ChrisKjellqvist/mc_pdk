@@ -1,5 +1,5 @@
-import src.libgen.grammar as gr
-from src.libgen.layout import Layout
+import mc_pdk.libgen.grammar as gr
+from mc_pdk.libgen.layout import Layout
 
 COMBINATIONAL = 0
 SEQUENTIAL = 1

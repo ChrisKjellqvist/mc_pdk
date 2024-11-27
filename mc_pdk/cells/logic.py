@@ -1,7 +1,7 @@
-from src.libgen import cell as c, grammar as gr
-from src.libgen.cell import InputPin, OutputPin
-from src.libgen.grammar import alphabet_input
-from src.libgen.layout import Layout
+from mc_pdk.libgen import cell as c, grammar as gr
+from mc_pdk.libgen.cell import InputPin, OutputPin
+from mc_pdk.libgen.grammar import alphabet_input
+from mc_pdk.libgen.layout import Layout
 
 
 def declare_logical_cells():
