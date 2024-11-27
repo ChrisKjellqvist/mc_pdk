@@ -1,3 +1,5 @@
+from numpy.lib.function_base import place
+
 import mc_pdk.libgen.cell as c
 from mc_pdk.global_constants import *
 
@@ -29,15 +31,26 @@ END M{i}
 
 def get_via_def_between(i, j):
     assert(i + 1 == j)
+    via_length = placement_grid_size*2
     return f"""
-VIA VIA{i}{j} DEFAULT
+VIA VIA{i}{j}H DEFAULT
     LAYER M{j} ;
-        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
+        RECT -{wire_width/2+via_length} -{wire_width/2} {wire_width/2+via_length} {wire_width/2} ;
     LAYER VIA{i} ;
-        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2+via_length} {wire_width/2} ;
     LAYER M{i} ;
         RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
-END VIA{i}{j}
+END VIA{i}{j}H
+
+VIA VIA{i}{j}V DEFAULT
+    LAYER M{j} ;
+        RECT -{wire_width/2} -{wire_width/2+via_length} {wire_width/2} {wire_width/2+via_length} ;
+    LAYER VIA{i} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2+via_length} ;
+    LAYER M{i} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
+END VIA{i}{j}V
+
 """
 
 def export_lef(n_layers, ofile):
@@ -64,11 +77,13 @@ END PROPERTYDEFINITIONS
         to_write += get_via_def_between(i, i+1)
     # for i in range(1, n_layers):
     #     to_write += get_viarule_between(i, i+1)
+    # Consult pg. 180 in LEF doc
+    # I don't think site symmetry is useful in this case because we only have one site type
     to_write += f"""
 SITE mc_site
     SIZE {placement_grid_size} BY {placement_grid_size*5} ;
     CLASS CORE ;
-    SYMMETRY X ;
+    # SYMMETRY X ;
 END mc_site
 """
     for cell in c.cells:

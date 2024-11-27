@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 
-import tcl.genus.gen_imp as gi
-import tcl.genus.gen_syn as gs
+import mc_pdk.tcl.genus.gen_imp as gi
+import mc_pdk.tcl.genus.gen_syn as gs
 
 if __name__ == "__main__":
     ifile = input("name of your input_file (.v): \n").strip()

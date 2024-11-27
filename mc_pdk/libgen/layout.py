@@ -237,14 +237,14 @@ class Layout:
             cols = len(lout[0])
             if lidx == 0:
                 cell_lef = f"""
-                MACRO {name}
-                    CLASS CORE ;
-                    ORIGIN {placement_grid_size/2} {placement_grid_size/2} ;
-                    FOREIGN {name} ;
-                    SIZE {(len(lout[0])+1) * placement_grid_size} BY {(len(lout)+1) * placement_grid_size} ;
-                    SYMMETRY X ;
-                    SITE mc_site ;
-                """
+MACRO {name}
+    CLASS CORE ;
+    ORIGIN 0 0 ;
+    FOREIGN {name} ;
+    SIZE {(len(lout[0])+1) * placement_grid_size} BY {(len(lout)+1) * placement_grid_size} ;
+    # SYMMETRY X ;
+    SITE mc_site ;
+"""
             for i in range(rows):
                 row = lout[i]
                 for j in range(cols):
@@ -269,13 +269,13 @@ class Layout:
                         break
                 # print(f"wire ${nm} is at {w_r}, {w_c} in {name}: {w_c * placement_grid_size + wire_offset}")
                 cell_lef += f"""
-            PIN {nm}
-                DIRECTION {direction} ;
-                PORT 
-                LAYER {layer_name} ;
-                RECT {w_c * placement_grid_size + wire_offset} {w_r * placement_grid_size + wire_offset} {w_c * placement_grid_size + wire_offset + wire_width} {w_r * placement_grid_size + wire_offset + wire_width} ;
-                END
-            END {nm}
-        """
+    PIN {nm}
+        DIRECTION {direction} ;
+        PORT 
+        LAYER {layer_name} ;
+        RECT {w_c * placement_grid_size + wire_offset} {w_r * placement_grid_size + wire_offset} {w_c * placement_grid_size + wire_offset + wire_width} {w_r * placement_grid_size + wire_offset + wire_width} ;
+        END
+    END {nm}
+"""
         cell_lef += f"END {name}\n"
         return cell_lef
