@@ -54,7 +54,7 @@ END VIA{i}{j}V
 """
 
 def export_lef(n_layers, ofile):
-    to_write = f"""VERSION 5.6 ;
+    to_write = f"""VERSION 5.7 ;
 BUSBITCHARS "[]" ;
 DIVIDERCHAR "/" ;
 
