@@ -245,7 +245,7 @@ MACRO {name}
     CLASS CORE ;
     ORIGIN 0 0 ;
     FOREIGN {name} ;
-    SIZE {(len(lout[0]) + 1) * placement_grid_size} BY {(len(lout) + 1) * placement_grid_size} ;
+    SIZE {(len(lout[0]) + 1) * placement_grid_size} BY {placement_grid_cell_height} ;
     # SYMMETRY X ;
     SITE mc_site ;
 """
@@ -281,12 +281,6 @@ MACRO {name}
         END
     END {nm}
 """
-
-        # figure out where to draw M1 routing blockages based on the layout
-        # find the x,y locations that can cause a spacing conflict. It will be the
-        blocks_with_spacing = []
-        for r in range(rows):
-            for c in range(cols):
 
         cell_lef += f"END {name}\n"
         return cell_lef

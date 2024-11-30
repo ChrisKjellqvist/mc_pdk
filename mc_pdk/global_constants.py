@@ -16,8 +16,17 @@ wire_width = manufacturing_grid_size*2
 placement_grid_size = to_n_decimals_flt(manufacturing_grid_size * 100, 4)
 # offset should put wire in teh middle of the placement grid
 wire_offset = to_n_decimals_flt(placement_grid_size / 2 - wire_width / 2, 4)
-wire_spacing_PARALLEL = to_n_decimals_flt(placement_grid_size - wire_width, 4)
-wire_spacing_EOL = to_n_decimals_flt(placement_grid_size*2 - wire_width, 4)
+placement_grid_cell_height = 7 * placement_grid_size
+
+aggressive=False
+if aggressive:
+    wire_spacing_PARALLEL = to_n_decimals_flt(placement_grid_size - wire_width, 4)
+    wire_spacing_EOL = to_n_decimals_flt(placement_grid_size*2 - wire_width, 4)
+    wire_spacing_SAMENET = 0
+else:
+    wire_spacing_PARALLEL = wire_spacing_EOL = to_n_decimals_flt(placement_grid_size * 2 - wire_width, 4)
+    wire_spacing_SAMENET = 0
+    # wire_spacing_EOL = to_n_decimals_flt(placement_grid_size*2 - wire_width, 4)
 
 print(f"""Wire width: {wire_width}
 Placement grid size: {placement_grid_size}

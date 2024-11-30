@@ -22,9 +22,10 @@ LAYER M{i}
     PITCH {pitch} ;
     WIDTH {wire_width} ;
     SPACING {wire_spacing_PARALLEL} ;
+    SPACING {wire_spacing_SAMENET} SAMENET ;
     AREA {wire_width*placement_grid_size} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
 
-    PROPERTY LEF57_SPACING "SPACING {wire_spacing_EOL} ENDOFLINE {wire_width} WITHIN {wire_spacing_PARALLEL} ; " ;
+    # PROPERTY LEF57_SPACING "SPACING {wire_spacing_EOL} ENDOFLINE {wire_width} WITHIN {wire_spacing_PARALLEL} ; " ;
 END M{i}
 """
 
@@ -50,7 +51,6 @@ VIA VIA{i}{j}V DEFAULT
     LAYER M{i} ;
         RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
 END VIA{i}{j}V
-
 """
 
 def export_lef(n_layers, ofile):
@@ -81,7 +81,7 @@ END PROPERTYDEFINITIONS
     # I don't think site symmetry is useful in this case because we only have one site type
     to_write += f"""
 SITE mc_site
-    SIZE {placement_grid_size} BY {placement_grid_size*5} ;
+    SIZE {placement_grid_size} BY {placement_grid_cell_height} ;
     CLASS CORE ;
     # SYMMETRY X ;
 END mc_site
