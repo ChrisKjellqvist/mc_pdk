@@ -32,7 +32,7 @@ END M{i}
 
 def get_via_def_between(i, j):
     assert(i + 1 == j)
-    via_length = placement_grid_size*2
+    via_length = placement_grid_size
     return f"""
 VIA VIA{i}{j}H DEFAULT
     LAYER M{j} ;
