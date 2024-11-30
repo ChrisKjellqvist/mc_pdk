@@ -73,6 +73,12 @@ END PROPERTYDEFINITIONS
         to_write += get_layer_lef(i)
         if i != n_layers:
             to_write += get_via_lef(i)
+
+    to_write += """
+LAYER OVERLAP
+    TYPE OVERLAP ;
+END OVERLAP
+"""
     for i in range(1, n_layers):
         to_write += get_via_def_between(i, i+1)
     # for i in range(1, n_layers):
