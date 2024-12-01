@@ -87,9 +87,9 @@ END OVERLAP
     # I don't think site symmetry is useful in this case because we only have one site type
     to_write += f"""
 SITE mc_site
-    SIZE {placement_grid_size} BY {placement_grid_cell_height} ;
+    SIZE {placement_grid_size} BY {standard_cell_height + 2 * placement_grid_size} ;
     CLASS CORE ;
-    # SYMMETRY X ;
+    # SYMMETRY X Y ;
 END mc_site
 """
     for cell in c.cells:

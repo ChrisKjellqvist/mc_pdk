@@ -16,7 +16,7 @@ wire_width = manufacturing_grid_size*2
 placement_grid_size = to_n_decimals_flt(manufacturing_grid_size * 100, 4)
 # offset should put wire in teh middle of the placement grid
 wire_offset = to_n_decimals_flt(placement_grid_size / 2 - wire_width / 2, 4)
-placement_grid_cell_height = 7 * placement_grid_size
+standard_cell_height = 4 * placement_grid_size
 
 aggressive=False
 if aggressive:
