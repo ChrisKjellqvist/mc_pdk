@@ -1,3 +1,4 @@
+from typing import List
 from mc_pdk.libgen import cell as c
 from mc_pdk.libgen.layout import Layout
 
@@ -6,7 +7,7 @@ def declare_sequential_cells():
     def generate_dff_with_settings(name: str,
                                    delay: int,
                                    area: int,
-                                   other_ipins: list[(str, bool)],
+                                   other_ipins: list,
                                    postamble,
                                    postamble_name,
                                    layout):

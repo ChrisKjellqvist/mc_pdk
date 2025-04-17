@@ -1,3 +1,4 @@
+from typing import List
 import mc_pdk.libgen.grammar as gr
 from mc_pdk.libgen.layout import Layout
 
@@ -128,8 +129,8 @@ class Cell:
                  cell_type,
                  delay,
                  area,
-                 ipins: list[InputPin],
-                 opins: list[OutputPin],
+                 ipins: List[InputPin],
+                 opins: List[OutputPin],
                  layout: Layout,
                  optional_preamble="",
                  optional_postamble="",

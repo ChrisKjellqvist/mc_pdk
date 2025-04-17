@@ -1,5 +1,5 @@
-manufacturing_grid_size = 0.05
-pitch = manufacturing_grid_size * 200
+manufacturing_grid_size = 12.5
+pitch = manufacturing_grid_size * 8
 
 
 def to_n_decimals(f: float, n: int) -> str:
@@ -12,8 +12,8 @@ def to_n_decimals_flt(f: float, n: int) -> float:
     return float(to_n_decimals(f, n))
 
 
-wire_width = manufacturing_grid_size*2
-placement_grid_size = to_n_decimals_flt(manufacturing_grid_size * 100, 4)
+wire_width = manufacturing_grid_size * 4
+placement_grid_size = manufacturing_grid_size * 8
 # offset should put wire in teh middle of the placement grid
 wire_offset = to_n_decimals_flt(placement_grid_size / 2 - wire_width / 2, 4)
 standard_cell_height = 4 * placement_grid_size

@@ -6,8 +6,16 @@ module top(
     input [7:0] b,
     output [7:0] c);
 
-    assign c = a + b;
+    reg [7:0] reg_a;
+    reg [7:0] reg_b;
+    reg [7:0] reg_c;
 
+    always @(posedge clk) begin
+	    reg_a <= a;
+	    reg_b <= b;
+	    reg_c <= a * b;
+    end
+    assign c = reg_c;
 endmodule
 
 /*

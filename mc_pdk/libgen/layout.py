@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import List
 
 from numpy.lib.function_base import place
 
@@ -186,7 +187,7 @@ class Layout:
     as the index [0] and other layers going consecutively downwards
     """
 
-    def __init__(self, accessible_layers: int, l: list[str]):
+    def __init__(self, accessible_layers: int, l: List[str]):
         self.lout = l
         self.accessible_layers = accessible_layers
 
