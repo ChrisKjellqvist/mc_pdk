@@ -100,10 +100,11 @@ def declare_sequential_cells():
                        clocked_on: "CLK";""",
         postamble_name="IQ",
         other_ipins=[],
-        layout=Layout(1, ["e   e   Qw\n"
-                          "dt  rb1  ub1\n"
-                          "s   rb1  ub1\n"
-                          "~w   e   Dw"]))
+        layout=Layout(1, [
+            "e   e    Qw\n"
+            "dt  rb1  ub1\n"
+            "s   rb1  ub1\n"
+            "~w   e   Dw"]))
     # generate_dff_with_settings(
     #     name="DFFNEG",
     #     delay=1,
@@ -178,4 +179,4 @@ def declare_sequential_cells():
                          "dt rb1 ub1 lb1 w e w g\n"
                          "g rb1 ub1 g g g g g\n"
                          "g g g g g g g g"
-                          ]))
+                         ]))

@@ -22,6 +22,7 @@ LAYER M{i}
     PITCH {pitch} ;
     WIDTH {wire_width} ;
     THICKNESS {wire_width} ;
+    OFFSET 0 ;
     SPACING {wire_spacing_PARALLEL} ;
     SPACING {wire_spacing_SAMENET} SAMENET ;
     AREA {wire_width*placement_grid_size} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
@@ -43,6 +44,7 @@ def get_via_def_between(i, j):
     via_length = placement_grid_size
     return f"""
 VIA VIA{i}{j}H DEFAULT
+    RESISTANCE 1.0 ;
     LAYER M{j} ;
         RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
     LAYER VIA{i} ;
@@ -51,14 +53,15 @@ VIA VIA{i}{j}H DEFAULT
         RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
 END VIA{i}{j}H
 
-VIA VIA{i}{j}V DEFAULT
-    LAYER M{j} ;
-        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
-    LAYER VIA{i} ;
-        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
-    LAYER M{i} ;
-        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
-END VIA{i}{j}V
+#VIA VIA{i}{j}V DEFAULT
+#    RESISTANCE 1.0 ;
+#    LAYER M{j} ;
+#        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
+#    LAYER VIA{i} ;
+#        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
+#    LAYER M{i} ;
+#        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
+#END VIA{i}{j}V
 """
 
 def export_lef(n_layers, ofile):
