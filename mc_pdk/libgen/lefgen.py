@@ -21,11 +21,19 @@ LAYER M{i}
     DIRECTION {"HORIZONTAL" if i % 2 == 1 else "VERTICAL"} ;
     PITCH {pitch} ;
     WIDTH {wire_width} ;
+    THICKNESS {wire_width} ;
     SPACING {wire_spacing_PARALLEL} ;
     SPACING {wire_spacing_SAMENET} SAMENET ;
     AREA {wire_width*placement_grid_size} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
 
     # PROPERTY LEF57_SPACING "SPACING {wire_spacing_EOL} ENDOFLINE {wire_width} WITHIN {wire_spacing_PARALLEL} ; " ;
+
+
+    RESISTANCE RPERSQ 0.001 ;
+    CAPACITANCE CPERSQDIST 0.0001 ;
+    EDGECAPACITANCE 0.0001 ;
+    MINIMUMDENSITY 0
+    MAXIMUMDENSITY 100
 END M{i}
 """
 
@@ -36,18 +44,18 @@ def get_via_def_between(i, j):
     return f"""
 VIA VIA{i}{j}H DEFAULT
     LAYER M{j} ;
-        RECT -{wire_width/2+via_length} -{wire_width/2} {wire_width/2+via_length} {wire_width/2} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
     LAYER VIA{i} ;
-        RECT -{wire_width/2} -{wire_width/2} {wire_width/2+via_length} {wire_width/2} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
     LAYER M{i} ;
         RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
 END VIA{i}{j}H
 
 VIA VIA{i}{j}V DEFAULT
     LAYER M{j} ;
-        RECT -{wire_width/2} -{wire_width/2+via_length} {wire_width/2} {wire_width/2+via_length} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
     LAYER VIA{i} ;
-        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2+via_length} ;
+        RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
     LAYER M{i} ;
         RECT -{wire_width/2} -{wire_width/2} {wire_width/2} {wire_width/2} ;
 END VIA{i}{j}V

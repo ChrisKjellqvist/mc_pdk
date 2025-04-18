@@ -68,7 +68,7 @@ class InputPin:
             related_ground_pin: VSS;
             related_power_pin: VDD;
             direction : input;
-            capacitance : 0;
+            capacitance : 100;
             clock : {'true' if self.is_clock else 'false'};
             {timing}
 {self.additional_timing_arcs if self.additional_timing_arcs is not None else ""}
@@ -207,9 +207,9 @@ def export_lib(ofile):
     voltage_map (VDD, 1);
     voltage_map (VSS, 0);
     default_fanout_load: 0;
-    default_input_pin_cap: 0;
-    default_output_pin_cap: 0;
-    default_inout_pin_cap: 0;
+    default_input_pin_cap: 100;
+    default_output_pin_cap: 100;
+    default_inout_pin_cap: 100;
     default_cell_leakage_power : 0;
     default_connection_class : "signal";
     current_unit : "1uA";

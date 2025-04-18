@@ -1,5 +1,5 @@
 manufacturing_grid_size = 12.5
-pitch = manufacturing_grid_size * 8
+pitch = manufacturing_grid_size * 16
 
 
 def to_n_decimals(f: float, n: int) -> str:
