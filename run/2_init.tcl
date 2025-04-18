@@ -52,7 +52,7 @@ set init_gnd_net {VSS}
 set density 0.15
 init_design -setup slow -hold slow
 floorPlan -site mc_site -r 1 $density 1500 1500 1500 1500
-setPlaceMode -place_global_place_io_pins true
+setPlaceMode -place_global_place_io_pins false
 setDesignMode -topRoutingLayer 9 -bottomRoutingLayer 1
 set_ccopt_property buffer_cells {BUFF}
 set_ccopt_property inverter_cells {INV}
