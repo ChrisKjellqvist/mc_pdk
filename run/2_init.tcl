@@ -51,15 +51,14 @@ set init_gnd_net {VSS}
 
 set density 0.15
 init_design -setup slow -hold slow
-floorPlan -site mc_site -r 1 $density 1000 1000 1000 1000
-setPlaceMode -place_global_place_io_pins false
+floorPlan -site mc_site -r 1 $density 1500 1500 1500 1500
+setPlaceMode -place_global_place_io_pins true
 setDesignMode -topRoutingLayer 9 -bottomRoutingLayer 1
 set_ccopt_property buffer_cells {BUFF}
 set_ccopt_property inverter_cells {INV}
 set_ccopt_property delay_cells {BUFF}
 setPlaceMode -place_global_max_density $density
 setOptMode -opt_max_density $density
-editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 4 -spreadType center -spacing 1.0 -pin {{a[0]} {a[1]} {a[2]} {a[3]} {a[4]} {a[5]} {a[6]} {a[7]} {b[0]} {b[1]} {b[2]} {b[3]} {b[4]} {b[5]} {b[6]} {b[7]} {c[0]} {c[1]} {c[2]} {c[3]} {c[4]} {c[5]} {c[6]} {c[7]} clk rst}
 setDistributeHost -local
 setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
 setEndCapMode -reset
@@ -69,7 +68,7 @@ setNanoRouteMode -quiet -drouteFixAntenna 0
 setNanoRouteMode -quiet -droutePostRouteSwapVia {}
 setNanoRouteMode -quiet -droutePostRouteSpreadWire 1
 setNanoRouteMode -quiet -drouteUseMultiCutViaEffort {}
-setNanoRouteMode -quiet -drouteOnGridOnly 0
+setNanoRouteMode -quiet -drouteOnGridOnly true
 setNanoRouteMode -quiet -routeIgnoreAntennaTopCellPin 0
 setNanoRouteMode -quiet -timingEngine {}
 setUsefulSkewMode -noBoundary false -maxAllowedDelay 1

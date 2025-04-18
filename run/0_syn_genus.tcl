@@ -10,7 +10,7 @@ set_db interconnect_mode wireload
 read_hdl -language sv "../test/test.v"
 
 set toplevel top
-# elaborate
+# elaborat
 elaborate $toplevel
 
 # constraints. set clock to whatever. time units is ticks
