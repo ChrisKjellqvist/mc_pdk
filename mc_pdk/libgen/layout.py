@@ -230,6 +230,7 @@ class Layout:
         layer_layouts = []
         rows=0
         cols=0
+        wire_placement_grid_off = placement_grid_size / 2
         for lidx in range(self.accessible_layers):
             layer_name = f"M{lidx + 1}"
             ar_idx = self.accessible_layers - 1 - lidx
@@ -244,7 +245,7 @@ class Layout:
                 cell_lef = f"""
 MACRO {name}
     CLASS CORE ;
-    ORIGIN {placement_grid_size / 2} {placement_grid_size} ;
+    ORIGIN {placement_grid_size} {placement_grid_size} ;
     FOREIGN {name} ;
     SIZE {(len(lout[0]) + 1) * placement_grid_size} BY {standard_cell_height + 2 * placement_grid_size } ;
     SYMMETRY X Y ;
@@ -273,12 +274,16 @@ MACRO {name}
                         direction = "INPUT"
                         break
                 # print(f"wire ${nm} is at {w_r}, {w_c} in {name}: {w_c * placement_grid_size + wire_offset}")
+                llx = w_c * placement_grid_size + wire_placement_grid_off - 0.5 * wire_width
+                lly = w_r * placement_grid_size + wire_placement_grid_off - 0.5 * wire_width
+                urx = w_c * placement_grid_size + wire_placement_grid_off + 0.5 * wire_width
+                ury = w_r * placement_grid_size + wire_placement_grid_off + 0.5 * wire_width
                 cell_lef += f"""
     PIN {nm}
         DIRECTION {direction} ;
         PORT 
         LAYER {layer_name} ;
-        RECT {w_c * placement_grid_size + wire_offset} {w_r * placement_grid_size + wire_offset} {w_c * placement_grid_size + wire_offset + wire_width} {w_r * placement_grid_size + wire_offset + wire_width} ;
+        RECT {llx} {lly} {urx} {ury} ;
         END
     END {nm}
 """

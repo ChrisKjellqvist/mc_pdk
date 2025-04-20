@@ -22,7 +22,7 @@ LAYER M{i}
     PITCH {pitch} ;
     WIDTH {wire_width} ;
     THICKNESS {wire_width} ;
-    OFFSET {wire_offset} ;
+    OFFSET {placement_grid_size / 2} ;
     SPACING {wire_spacing_PARALLEL} ;
     SPACING {wire_spacing_SAMENET} SAMENET ;
     AREA {wire_width*placement_grid_size} ; # 1xmin_space wire is minarea (signifying a dot - needed for vias)
@@ -30,9 +30,9 @@ LAYER M{i}
     # PROPERTY LEF57_SPACING "SPACING {wire_spacing_EOL} ENDOFLINE {wire_width} WITHIN {wire_spacing_PARALLEL} ; " ;
 
 
-    RESISTANCE RPERSQ 0.001 ;
-    CAPACITANCE CPERSQDIST 0.0001 ;
-    EDGECAPACITANCE 0.0001 ;
+    RESISTANCE RPERSQ 1 ;
+    CAPACITANCE CPERSQDIST 0.001 ;
+    EDGECAPACITANCE 0.001 ;
     MINIMUMDENSITY 0 ;
     MAXIMUMDENSITY 100 ;
 END M{i}

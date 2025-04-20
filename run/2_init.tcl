@@ -49,7 +49,7 @@ set init_design_set_top 0
 set init_pwr_net {VDD}
 set init_gnd_net {VSS}
 
-set density 0.15
+set density 0.5
 init_design -setup slow -hold slow
 floorPlan -site mc_site -r 1 $density 1500 1500 1500 1500
 setPlaceMode -place_global_place_io_pins false
@@ -57,7 +57,7 @@ setDesignMode -topRoutingLayer 9 -bottomRoutingLayer 1
 set_ccopt_property buffer_cells {BUFF}
 set_ccopt_property inverter_cells {INV}
 set_ccopt_property delay_cells {BUFF}
-setPlaceMode -place_global_max_density $density
+setPlaceMode -place_global_max_density $density -place_detail_wire_length_opt_effort high
 setOptMode -opt_max_density $density
 setDistributeHost -local
 setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
@@ -73,5 +73,6 @@ setNanoRouteMode -quiet -routeIgnoreAntennaTopCellPin 0
 setNanoRouteMode -quiet -timingEngine {}
 setUsefulSkewMode -noBoundary false -maxAllowedDelay 1
 setPlaceMode -reset
-setPlaceMode -congEffort auto -timingDriven 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -maxDensity $density -checkPinLayerForAccess {  1 2 3 } -maxRouteLayer 9 -preserveRouting 1 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -congEffort auto -timingDriven 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -maxDensity $density -checkPinLayerForAccess {  1 2 3 } -maxRouteLayer 9 -preserveRouting 1 -rmAffectedRouting 0 -checkRoute 1 -swapEEQ 0
 setPlaceMode -fp false
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 1.0 -pin {{a[0]} {a[1]} {a[2]} {a[3]} {a[4]} {a[5]} {a[6]} {a[7]} {b[0]} {b[1]} {b[2]} {b[3]} {b[4]} {b[5]} {b[6]} {b[7]} {c[0]} {c[1]} {c[2]} {c[3]} {c[4]} {c[5]} {c[6]} {c[7]} clk rst}

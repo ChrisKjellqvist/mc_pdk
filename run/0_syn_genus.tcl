@@ -18,9 +18,12 @@ set clock_period 25
 create_clock -name clk -period $clock_period clk
 
 # make sure you add input and output delays
-# set_input_delay -clock clk 1 [get_object_name [get_ports -filter direction==in io*]]
-# set_output_delay -clock clk 1 [get_object_name [get_ports -filter direction==out io*]]
+#set_input_delay -clock clk 1 [get_object_name [get_ports -filter direction==in io*]]
+#set_output_delay -clock clk 1 [get_object_name [get_ports -filter direction==out io*]]
 
+set_input_delay -clock clk 1 [get_object_name [get_ports -filter direction==in a*]]
+set_input_delay -clock clk 1 [get_object_name [get_ports -filter direction==in b*]]
+set_output_delay -clock clk 1 [get_object_name [get_ports -filter direction==out c*]]
 # uncomment this if you want retiming
 set_db design:$toplevel .retime true
 

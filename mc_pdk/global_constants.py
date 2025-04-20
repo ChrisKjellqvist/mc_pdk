@@ -1,5 +1,5 @@
 manufacturing_grid_size = 12.5
-pitch = manufacturing_grid_size * 16
+pitch = manufacturing_grid_size * 8
 
 
 def to_n_decimals(f: float, n: int) -> str:
@@ -31,6 +31,7 @@ else:
 print(f"""Wire width: {wire_width}
 Placement grid size: {placement_grid_size}
 Wire_off: {wire_offset}
+wire_grid: {placement_grid_size / 2}
 wire_space: {wire_spacing_PARALLEL}
 wire_space_eol: {wire_spacing_EOL}""")
 
